@@ -1,5 +1,5 @@
 ### Deploy by docker run
-**CMDbuild with demo database**  
+**openMAINT with demo database**  
 ```bash
 docker compose up -d --wait
 # configure attachments
@@ -13,7 +13,7 @@ docker exec -ti openmaint_app /usr/local/tomcat/webapps/cmdbuild/cmdbuild.sh res
 #### CMDBUILD_DUMP values
 * `demo.dump.xz`
 * `empty.dump.xz`
-* `test.dump.xz`
+
 
 #### Environment variables (.env)
 
@@ -22,26 +22,26 @@ docker exec -ti openmaint_app /usr/local/tomcat/webapps/cmdbuild/cmdbuild.sh res
 | `POSTGRES_USER` | `postgres` | PostgreSQL superuser |
 | `POSTGRES_PASSWORD` | `postgres` | PostgreSQL superuser password |
 | `POSTGRES_PORT` | `5432` | PostgreSQL port |
-| `POSTGRES_HOST` | `cmdbuild_db` | PostgreSQL hostname |
-| `POSTGRES_DB` | `cmdbuild_4` | CMDBuild database name |
-| `CMDBUILD_DB_USER` | `cmdbuild` | CMDBuild application database user |
-| `CMDBUILD_DB_PASSWORD` | `cmdbuild` | CMDBuild application database password |
+| `POSTGRES_HOST` | `openmaint_db` | PostgreSQL hostname |
+| `POSTGRES_DB` | `openmaint` | CMDBuild database name |
+| `OPENMAINT_DB_USER` | `openmaint` | CMDBuild application database user |
+| `OPENMAINT_DB_PASSWORD` | `openmaint` | CMDBuild application database password |
 | `JAVA_OPTS` | `-Xmx6000m -Xms3000m` | JVM options for Tomcat |
 | `PGADMIN_DEFAULT_EMAIL` | `admin@example.com` | pgAdmin login email |
 | `PGADMIN_DEFAULT_PASSWORD` | `admin` | pgAdmin login password |
 
 #### Please change credentials for postgres and tomcat server
-* @ `cmdbuild-4.2.0/.env` — all environment variables
-* @ `cmdbuild-4.2.0/files/context.xml`
-* @ `cmdbuild-4.2.0/files/tomcat-users.xml`
+* @ `openmaint-2.4-4.2.0/.env` — all environment variables
+* @ `openmaint-2.4-4.2.0/files/context.xml`
+* @ `openmaint-2.4-4.2.0/files/tomcat-users.xml`
 
-#### Credentials and access to Cmdbuild
+#### Credentials and access to Openmaint
 * **Link to CMDbuild app** — http://localhost:8090/cmdbuild/ui/
 * **username** — admin (default)
 * **password** — admin (default)
 
-#### Credentials and access to Cmdbuild Database
-* **Host** — cmdbuild_db:5432
+#### Credentials and access to Openmaint Database
+* **Host** — openmaint_db:5432
 * **username** — postgres (default)
 * **password** — postgres (default)
 
