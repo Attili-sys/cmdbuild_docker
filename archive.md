@@ -8,6 +8,7 @@
 
 | Command | Tag | Source | Maintainer |
 |---------|-----|--------|------------|
+| `docker build` | `itmicus/cmdbuild:4.1.0` | `cmdbuild-4.1.0/.` | Itmicus <order@itmicus.com> |
 | `docker build` | `itmicus/cmdbuild:4.0.0` | `cmdbuild-4.0.0/.` | Itmicus <order@itmicus.com> |
 | `docker build` | `itmicus/cmdbuild:app-3.4.4` | `3.4.4/cmdbuild/.` | Itmicus <order@itmicus.com> |
 | `docker build` | `itmicus/cmdbuild:app-3.4.2` | `3.4.2/cmdbuild/.` | Itmicus <order@itmicus.com> |
@@ -40,6 +41,7 @@
 
 | Command | Tag | Source | Maintainer |
 |---------|-----|--------|------------|
+| `docker build` | `itmicus/cmdbuild:om-2.4-4.1.0` | `penmaint-2.4-4.1.0/.` | Itmicus <order@itmicus.com> |
 | `docker build` | `itmicus/cmdbuild:om-2.4-4.0.4` | `openmaint-2.4-4.0.4/.` | Itmicus <order@itmicus.com> |
 | `docker build` | `itmicus/cmdbuild:om-2.3-3.4.1-d` | `openmaint-2.3-3.4.1-d/.` | Andre Carvalho <afccarvalho.1991@gmail.com> |
 | `docker build` | `itmicus/cmdbuild:om-2.0-3.3` | `openmaint-2.0-3.3/.` | Itmicus <order@itmicus.com> |
