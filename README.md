@@ -14,6 +14,7 @@
 
 | Date | Updates |
 |------|---------|
+| **31/07/2026** | Add to openMAINT 2.4.2 on  on CMDBuild 4.2.0 with configure attachments to postgres. |
 | **13/07/2026** | Add to CMDBuild 4.2.0 configure attachments to postgres. |
 | **08/07/2026** | Add CMDBuild 4.2.0 — @itmicus. Minimum Docker Compose version v2.34.0. Added PGAdmin for managing CMDBuild DB. |
 | **21/10/2025** | Add CMDBuild 4.1.0, READY2USE 2.4 (on CMDBuild 4.1.0), openMAINT 2.4 (on CMDBuild 4.1.0). Refactoring, up to PostgreSQL 17 / Tomcat 11 — @itmicus. |
@@ -57,12 +58,13 @@ sh docker-build.sh
 
 ```bash
 git clone https://github.com/itmicus/cmdbuild_docker
-docker-compose -f cmdbuild-4.2.0/docker-compose.yml up -d --wait
+docker compose -f cmdbuild-4.2.0/docker-compose.yml up -d --wait
 # configure attachments
 docker exec -ti cmdbuild_app /usr/local/tomcat/webapps/cmdbuild/cmdbuild.sh restws setconfig org.cmdbuild.dms.enabled false
 docker exec -ti cmdbuild_app /usr/local/tomcat/webapps/cmdbuild/cmdbuild.sh restws setconfig org.cmdbuild.dms.service.type postgres
 docker exec -ti cmdbuild_app /usr/local/tomcat/webapps/cmdbuild/cmdbuild.sh restws setconfig org.cmdbuild.dms.enabled true
 ```
+Open http://localhost:8090/cmdbuild/ui/ 
 
 ### CMDBuild Ready2Use 2.4-4.1.0
 
@@ -73,21 +75,20 @@ git clone https://github.com/itmicus/cmdbuild_docker
 Open `docker-compose.yml`, change `CMDBUILD_DUMP` to `demo.dump.xz`, and save the file.
 
 ```bash
-docker-compose -f ready2use-2.4-4.1.0/docker-compose.yml up -d
+docker compose -f ready2use-2.4-4.1.0/docker-compose.yml up -d
 ```
 
-### CMDBuild openMAINT 2.4-4.1.0
+### CMDBuild openMAINT 2.4.2-4.2.0
 
 ```bash
 git clone https://github.com/itmicus/cmdbuild_docker
-```
-
-Open `docker-compose.yml`, change `CMDBUILD_DUMP` to `demo.dump.xz`, and save the file.
-
-```bash
-docker-compose -f openmaint-2.4-4.1.0/docker-compose.yml up -d
-```
-
+docker compose -f openmaint-2.4.2-4.2.0/docker-compose.yml up -d --wait
+# configure attachments
+docker exec -ti openmaint_app /usr/local/tomcat/webapps/cmdbuild/cmdbuild.sh restws setconfig org.cmdbuild.dms.enabled false
+docker exec -ti openmaint_app /usr/local/tomcat/webapps/cmdbuild/cmdbuild.sh restws setconfig org.cmdbuild.dms.service.type postgres
+docker exec -ti openmaint_app /usr/local/tomcat/webapps/cmdbuild/cmdbuild.sh restws setconfig org.cmdbuild.dms.enabled true
+```  
+Open http://localhost:8090/cmdbuild/ui/ 
 ---
 
 ## Connect to CMDBuild

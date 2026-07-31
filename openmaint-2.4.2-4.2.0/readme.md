@@ -31,9 +31,9 @@ docker exec -ti openmaint_app /usr/local/tomcat/webapps/cmdbuild/cmdbuild.sh res
 | `PGADMIN_DEFAULT_PASSWORD` | `admin` | pgAdmin login password |
 
 #### Please change credentials for postgres and tomcat server
-* @ `openmaint-2.4-4.2.0/.env` — all environment variables
-* @ `openmaint-2.4-4.2.0/files/context.xml`
-* @ `openmaint-2.4-4.2.0/files/tomcat-users.xml`
+* @ `openmaint-2.4.2-4.2.0/.env` — all environment variables
+* @ `openmaint-2.4.2-4.2.0/files/context.xml`
+* @ `openmaint-2.4.2-4.2.0/files/tomcat-users.xml`
 
 #### Credentials and access to Openmaint
 * **Link to CMDbuild app** — http://localhost:8090/cmdbuild/ui/
