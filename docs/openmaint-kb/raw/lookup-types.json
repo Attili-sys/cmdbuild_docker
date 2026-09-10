@@ -1,0 +1,792 @@
+{
+    "success": true,
+    "data": [
+        {
+            "_id": "AccountingMov - State",
+            "name": "AccountingMov - State",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "AccountingMov - Type",
+            "name": "AccountingMov - Type",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "BudgetItem - Type",
+            "name": "BudgetItem - Type",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "Building - MainUse",
+            "name": "Building - MainUse",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "CI - Brand",
+            "name": "CI - Brand",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "CI - Condition",
+            "name": "CI - Condition",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "CI - State",
+            "name": "CI - State",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "CI - Type",
+            "name": "CI - Type",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "COMMON - Attrlist",
+            "name": "COMMON - Attrlist",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "COMMON - Classlist",
+            "name": "COMMON - Classlist",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "COMMON - Country",
+            "name": "COMMON - Country",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "COMMON - Criticality",
+            "name": "COMMON - Criticality",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "COMMON - Currency",
+            "name": "COMMON - Currency",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "COMMON - DatePart",
+            "name": "COMMON - DatePart",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "COMMON - DayOfWeek",
+            "name": "COMMON - DayOfWeek",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "COMMON - LookupType",
+            "name": "COMMON - LookupType",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "COMMON - MeasureType",
+            "name": "COMMON - MeasureType",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "COMMON - Message",
+            "name": "COMMON - Message",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "COMMON - Month",
+            "name": "COMMON - Month",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "COMMON - Priority",
+            "name": "COMMON - Priority",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "COMMON - ReadingType",
+            "name": "COMMON - ReadingType",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "COMMON - SQLType",
+            "name": "COMMON - SQLType",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "COMMON - VATRate",
+            "name": "COMMON - VATRate",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "COMMON - YesNo",
+            "name": "COMMON - YesNo",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "CRT-CIProperty - Property",
+            "name": "CRT-CIProperty - Property",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "CRT-CISummary-CILastCheck - Labels",
+            "name": "CRT-CISummary-CILastCheck - Labels",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "CRT-CISummary-CIProperty - Labels",
+            "name": "CRT-CISummary-CIProperty - Labels",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "CRT-CorrectiveMaintSummary - Grouping",
+            "name": "CRT-CorrectiveMaintSummary - Grouping",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "CRT-PrevMaintSummary-PMC - Labels",
+            "name": "CRT-PrevMaintSummary-PMC - Labels",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "CRT-PrevMaintSummary-PMP - Labels",
+            "name": "CRT-PrevMaintSummary-PMP - Labels",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "CRT-PrevMaintSummary-TaskStatus - Labels",
+            "name": "CRT-PrevMaintSummary-TaskStatus - Labels",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "CTX-DelayNotificationManage - Action",
+            "name": "CTX-DelayNotificationManage - Action",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "CWG-PMChecklist-MassiveSetBtn - ApplyTo",
+            "name": "CWG-PMChecklist-MassiveSetBtn - ApplyTo",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "CalendarCategory",
+            "name": "CalendarCategory",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "protected"
+        },
+        {
+            "_id": "CalendarConfig - FrequencyType",
+            "name": "CalendarConfig - FrequencyType",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "CalendarConfig - FrequencyUM",
+            "name": "CalendarConfig - FrequencyUM",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "CalendarConfig - ServiceStatus",
+            "name": "CalendarConfig - ServiceStatus",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "CalendarEndType",
+            "name": "CalendarEndType",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "system"
+        },
+        {
+            "_id": "CalendarEventStatus",
+            "name": "CalendarEventStatus",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "system"
+        },
+        {
+            "_id": "CalendarFrequency",
+            "name": "CalendarFrequency",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "protected"
+        },
+        {
+            "_id": "CalendarPriority",
+            "name": "CalendarPriority",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "protected"
+        },
+        {
+            "_id": "Consumable - Category",
+            "name": "Consumable - Category",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "Consumable - Type",
+            "name": "Consumable - Type",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "CustomComponents - Translations",
+            "name": "CustomComponents - Translations",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "CustomException - Translations",
+            "name": "CustomException - Translations",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "CustomPageOpm - CorrectiveMaint",
+            "name": "CustomPageOpm - CorrectiveMaint",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "DmsEnergyPerformCert - Rating",
+            "name": "DmsEnergyPerformCert - Rating",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "DmsEnergyPerformCert - Seasonal rating",
+            "name": "DmsEnergyPerformCert - Seasonal rating",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "Employee - State",
+            "name": "Employee - State",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "FireExtinguisher - FireClass",
+            "name": "FireExtinguisher - FireClass",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "Floor - Level",
+            "name": "Floor - Level",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "FlowStatus",
+            "name": "FlowStatus",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "system"
+        },
+        {
+            "_id": "Functions - Labels",
+            "name": "Functions - Labels",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "MaintProcess - EstimateStatus",
+            "name": "MaintProcess - EstimateStatus",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "MaintProcess - Outcome",
+            "name": "MaintProcess - Outcome",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "MaintProcess - SuspensionReason",
+            "name": "MaintProcess - SuspensionReason",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "MaintProcess - Type",
+            "name": "MaintProcess - Type",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "MaintSLA - ThresholdUM",
+            "name": "MaintSLA - ThresholdUM",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "MaintSLA - TimeCalcCriteria",
+            "name": "MaintSLA - TimeCalcCriteria",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "ModbusConfig - ConversionRule",
+            "name": "ModbusConfig - ConversionRule",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "ModbusConfig - DataSize",
+            "name": "ModbusConfig - DataSize",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "ModbusConfig - DataType",
+            "name": "ModbusConfig - DataType",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "ModbusConfig - State",
+            "name": "ModbusConfig - State",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "OutdoorElement - Access",
+            "name": "OutdoorElement - Access",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "Parameter - Area",
+            "name": "Parameter - Area",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "PartitionTable - Type",
+            "name": "PartitionTable - Type",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "PartitionTable - UM",
+            "name": "PartitionTable - UM",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "Peripheral - Technology",
+            "name": "Peripheral - Technology",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "PrevMaintConfig - FrequencyUM",
+            "name": "PrevMaintConfig - FrequencyUM",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "PrevMaintConfig - ModifyAction",
+            "name": "PrevMaintConfig - ModifyAction",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "PrevMaintTasks - Outcome",
+            "name": "PrevMaintTasks - Outcome",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "Process - Action",
+            "name": "Process - Action",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "Process - ProcessStatus",
+            "name": "Process - ProcessStatus",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "Process - ProcessType",
+            "name": "Process - ProcessType",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "ProcessMaintSLA - State",
+            "name": "ProcessMaintSLA - State",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "REP-AccountingRecap - Labels",
+            "name": "REP-AccountingRecap - Labels",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "REP-ActivityReport - Labels",
+            "name": "REP-ActivityReport - Labels",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "REP-AttachmentList - Labels",
+            "name": "REP-AttachmentList - Labels",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "REP-BudgetPartitionMatrix - BudgetType",
+            "name": "REP-BudgetPartitionMatrix - BudgetType",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "REP-BudgetPartitionMatrix - Labels",
+            "name": "REP-BudgetPartitionMatrix - Labels",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "REP-BudgetSummary - BudgetType",
+            "name": "REP-BudgetSummary - BudgetType",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "REP-BudgetSummary - Labels",
+            "name": "REP-BudgetSummary - Labels",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "REP-BudgetSummary - ReportDetail",
+            "name": "REP-BudgetSummary - ReportDetail",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "REP-BuildingDossier - Labels",
+            "name": "REP-BuildingDossier - Labels",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "REP-CIInventory - Labels",
+            "name": "REP-CIInventory - Labels",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "REP-CIInventory - ReportGrouping",
+            "name": "REP-CIInventory - ReportGrouping",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "REP-ConsumableStocks - Labels",
+            "name": "REP-ConsumableStocks - Labels",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "REP-MaintAccMovOverview - FilterType",
+            "name": "REP-MaintAccMovOverview - FilterType",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "REP-MaintAccMovOverview - Labels",
+            "name": "REP-MaintAccMovOverview - Labels",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "REP-MaintAccMovOverview - ReportDetail",
+            "name": "REP-MaintAccMovOverview - ReportDetail",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "REP-MaintSLACompliance - FilterType",
+            "name": "REP-MaintSLACompliance - FilterType",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "REP-MaintSLACompliance - Labels",
+            "name": "REP-MaintSLACompliance - Labels",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "REP-MaintSLACompliance - Sorting",
+            "name": "REP-MaintSLACompliance - Sorting",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "REP-PrevMaintCalendar - Labels",
+            "name": "REP-PrevMaintCalendar - Labels",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "REP-PrevMaintConfigIssues - Labels",
+            "name": "REP-PrevMaintConfigIssues - Labels",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "REP-PrevMaintTasks - Labels",
+            "name": "REP-PrevMaintTasks - Labels",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "REP-PrevMaintTasksStatus - Labels",
+            "name": "REP-PrevMaintTasksStatus - Labels",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "REP-ServiceStatusOverview - Labels",
+            "name": "REP-ServiceStatusOverview - Labels",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "Rent - AmountType",
+            "name": "Rent - AmountType",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "Rent - DurationUM",
+            "name": "Rent - DurationUM",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "Room - Use",
+            "name": "Room - Use",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "Site - Condition",
+            "name": "Site - Condition",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "Site - State",
+            "name": "Site - State",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "Survey - Agreement",
+            "name": "Survey - Agreement",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "Survey - Quality",
+            "name": "Survey - Quality",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "Survey - Satisfaction",
+            "name": "Survey - Satisfaction",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "Topic - State",
+            "name": "Topic - State",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "Topic - Type",
+            "name": "Topic - Type",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "Unit - CadastralCategory",
+            "name": "Unit - CadastralCategory",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "Utility - Type",
+            "name": "Utility - Type",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "WrhMovement - Category",
+            "name": "WrhMovement - Category",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        },
+        {
+            "_id": "WrhMovement - Subcategory",
+            "name": "WrhMovement - Subcategory",
+            "parent": null,
+            "speciality": "default",
+            "accessType": "default"
+        }
+    ],
+    "meta": {
+        "total": 112
+    }
+}

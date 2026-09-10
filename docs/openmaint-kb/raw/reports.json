@@ -1,0 +1,113 @@
+{
+    "success": true,
+    "data": [
+        {
+            "_id": 286748,
+            "code": "AccountingRecap",
+            "description": "Accounting recap",
+            "_description_translation": "Accounting recap",
+            "active": true
+        },
+        {
+            "_id": 286763,
+            "code": "ActivityReport",
+            "description": "Activity report",
+            "_description_translation": "Activity report",
+            "active": true
+        },
+        {
+            "_id": 393470,
+            "code": "AttachmentList",
+            "description": "Attachment list",
+            "_description_translation": "Attachment list",
+            "active": true
+        },
+        {
+            "_id": 286784,
+            "code": "BudgetPartitionMatrix",
+            "description": "Budget partition matrix",
+            "_description_translation": "Budget partition matrix",
+            "active": true
+        },
+        {
+            "_id": 286820,
+            "code": "BudgetSummary",
+            "description": "Budget summary",
+            "_description_translation": "Budget summary",
+            "active": true
+        },
+        {
+            "_id": 324743,
+            "code": "BuildingDossier",
+            "description": "Building dossier",
+            "_description_translation": "Building dossier",
+            "active": true
+        },
+        {
+            "_id": 286852,
+            "code": "CIInventory",
+            "description": "CI inventory",
+            "_description_translation": "CI inventory",
+            "active": true
+        },
+        {
+            "_id": 265505,
+            "code": "ConsumableStocks",
+            "description": "Consumable stocks",
+            "_description_translation": "Consumable stocks",
+            "active": true
+        },
+        {
+            "_id": 286897,
+            "code": "MaintAccMovOverview",
+            "description": "Maintenance accounting overview",
+            "_description_translation": "Maintenance accounting overview",
+            "active": true
+        },
+        {
+            "_id": 286954,
+            "code": "MaintSLACompliance",
+            "description": "Maintenance SLA compliance",
+            "_description_translation": "Maintenance SLA compliance",
+            "active": true
+        },
+        {
+            "_id": 286982,
+            "code": "PrevMaintCalendar",
+            "description": "Preventive maintenance calendar",
+            "_description_translation": "Preventive maintenance calendar",
+            "active": true
+        },
+        {
+            "_id": 265545,
+            "code": "PrevMaintConfigIssues",
+            "description": "Preventive maintenance configuration issues",
+            "_description_translation": "Preventive maintenance configuration issues",
+            "active": true
+        },
+        {
+            "_id": 331886,
+            "code": "PrevMaintTasks",
+            "description": "Preventive maintenance tasks",
+            "_description_translation": "Preventive maintenance tasks",
+            "active": true
+        },
+        {
+            "_id": 287019,
+            "code": "PrevMaintTasksStatus",
+            "description": "Preventive maintenance tasks status",
+            "_description_translation": "Preventive maintenance tasks status",
+            "active": true
+        },
+        {
+            "_id": 331904,
+            "code": "ServiceStatusOverview",
+            "description": "Service status overview",
+            "_description_translation": "Service status overview",
+            "active": true
+        }
+    ],
+    "meta": {
+        "total": 15
+    }
+}

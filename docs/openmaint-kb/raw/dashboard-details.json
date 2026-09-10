@@ -1,0 +1,1163 @@
+{
+  "data": {
+    "280447": {
+      "_id": 280447,
+      "name": "CISummary",
+      "description": "CI summary",
+      "_description_translation": "CI summary",
+      "active": true,
+      "charts": [
+        {
+          "_id": "cdc2bc54-3a26-4085-8eb8-f46c56600c56",
+          "name": "CIProperty",
+          "type": "pie",
+          "active": true,
+          "height": "",
+          "legend": true,
+          "autoLoad": true,
+          "labelField": "property_descr",
+          "description": "CI property",
+          "dataSourceName": "crt_ciproperty",
+          "dataSourceType": "function",
+          "dataSourceLimit": 0,
+          "dataSourceFilter": "",
+          "singleSeriesField": "quantity",
+          "descriptionWithName": "CI property",
+          "dataSourceParameters": [
+            {
+              "name": "property_id",
+              "type": "long",
+              "filter": {
+                "expression": ""
+              },
+              "required": true,
+              "fieldType": "lookup",
+              "lookupType": "CRT-CIProperty - Property",
+              "description": "Property",
+              "defaultValue": "280443",
+              "filterexpression": "",
+              "preselectIfUnique": false,
+              "classToUseForReferenceWidget": "",
+              "_description_translation": "Property"
+            },
+            {
+              "name": "site_id",
+              "type": "long",
+              "filter": {
+                "expression": "from Site where Id in (/(select \"Id\" from \"Complex\" where \"Status\" = 'A' union select \"Id\" from \"Building\" where \"Status\" = 'A')/)"
+              },
+              "required": false,
+              "fieldType": "card",
+              "ecqlFilter": {
+                "id": "bda3fhvk1d1jo8qn7t2wt6ar364b",
+                "bindings": {
+                  "server": [],
+                  "client": []
+                }
+              },
+              "lookupType": "",
+              "description": "Site (default all)",
+              "defaultValue": "",
+              "filterexpression": "from Site where Id in (/(select \"Id\" from \"Complex\" where \"Status\" = 'A' union select \"Id\" from \"Building\" where \"Status\" = 'A')/)",
+              "preselectIfUnique": false,
+              "classToUseForReferenceWidget": "Site",
+              "_description_translation": "Site (default all)"
+            }
+          ],
+          "_description_translation": "CI property",
+          "_labelField_translation": "property_descr"
+        },
+        {
+          "_id": "c8d21887-2f49-4522-9923-0a55b38bbc89",
+          "name": "CILastCheck",
+          "type": "bar",
+          "steps": 0,
+          "active": true,
+          "height": "",
+          "legend": false,
+          "bgcolor": "",
+          "fgcolor": "",
+          "maximum": 0,
+          "minimum": 0,
+          "autoLoad": true,
+          "labelField": "",
+          "description": "CI last check date",
+          "dataSourceName": "crt_cilastcheck",
+          "dataSourceType": "function",
+          "valueAxisLabel": "Quantity",
+          "dataSourceLimit": 0,
+          "valueAxisFields": [
+            "quantity"
+          ],
+          "chartOrientation": "horizontal",
+          "dataSourceFilter": "",
+          "categoryAxisField": "last_check_date",
+          "categoryAxisLabel": "Last check date",
+          "singleSeriesField": "",
+          "descriptionWithName": "CI last check",
+          "dataSourceParameters": [
+            {
+              "name": "site_id",
+              "type": "long",
+              "filter": {
+                "expression": "from Site where Id in (/(select \"Id\" from \"Complex\" where \"Status\" = 'A' union select \"Id\" from \"Building\" where \"Status\" = 'A')/)"
+              },
+              "required": false,
+              "fieldType": "card",
+              "ecqlFilter": {
+                "id": "bda3fhvk1d1jo8qn7t2wt6ar5z97",
+                "bindings": {
+                  "server": [],
+                  "client": []
+                }
+              },
+              "lookupType": "",
+              "description": "Site (default all)",
+              "defaultValue": "",
+              "filterexpression": "from Site where Id in (/(select \"Id\" from \"Complex\" where \"Status\" = 'A' union select \"Id\" from \"Building\" where \"Status\" = 'A')/)",
+              "preselectIfUnique": false,
+              "classToUseForReferenceWidget": "Site",
+              "_description_translation": "Site (default all)"
+            }
+          ],
+          "_description_translation": "CI last check date",
+          "_valueAxisLabel_translation": "Quantity",
+          "_categoryAxisLabel_translation": "Last check date",
+          "_labelField_translation": ""
+        }
+      ],
+      "layout": {
+        "rows": [
+          {
+            "id": "extModel2821-1",
+            "columns": [
+              {
+                "width": 0.5,
+                "charts": [
+                  "cdc2bc54-3a26-4085-8eb8-f46c56600c56"
+                ]
+              },
+              {
+                "width": 0.5,
+                "charts": [
+                  "c8d21887-2f49-4522-9923-0a55b38bbc89"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "326350": {
+      "_id": 326350,
+      "name": "ReadingConsumptionSummary",
+      "description": "Reading and consumption summary",
+      "_description_translation": "Reading and consumption summary",
+      "active": true,
+      "charts": [
+        {
+          "_id": "aa23ca25-b26c-4104-a09d-d281adbc31a2",
+          "name": "ReadingsTrend",
+          "type": "line",
+          "steps": 0,
+          "active": true,
+          "height": "",
+          "legend": true,
+          "bgcolor": "",
+          "fgcolor": "",
+          "maximum": 0,
+          "minimum": 0,
+          "autoLoad": true,
+          "labelField": "",
+          "description": "Readings trend",
+          "dataSourceName": "crt_readings_trend",
+          "dataSourceType": "function",
+          "valueAxisLabel": "Value",
+          "dataSourceLimit": 0,
+          "valueAxisFields": [
+            "max",
+            "min",
+            "avg"
+          ],
+          "chartOrientation": "horizontal",
+          "dataSourceFilter": "",
+          "categoryAxisField": "detection_date",
+          "categoryAxisLabel": "Date",
+          "singleSeriesField": "",
+          "descriptionWithName": "Readings trend",
+          "dataSourceParameters": [
+            {
+              "name": "utility",
+              "type": "long",
+              "filter": {
+                "expression": "from Utility where Id in (/(SELECT \"Utility\" FROM \"MeterReading\" WHERE \"Status\" = 'A')/)"
+              },
+              "required": false,
+              "fieldType": "card",
+              "lookupType": "",
+              "description": "Utility",
+              "defaultValue": "",
+              "filterexpression": "",
+              "preselectIfUnique": true,
+              "classToUseForReferenceWidget": "Utility",
+              "_description_translation": "Utility",
+              "ecqlFilter": {
+                "id": "4sazajh2f61d7hi78ucm7qrjs4uv826ivpz9c1bo9n0sn8iz39lmj",
+                "bindings": {
+                  "server": [],
+                  "client": []
+                }
+              }
+            },
+            {
+              "name": "asset",
+              "type": "long",
+              "filter": {
+                "expression": "from Asset where Id in (/(SELECT \"Asset\" FROM \"MeterReading\" WHERE \"Status\" = 'A')/)"
+              },
+              "required": false,
+              "fieldType": "card",
+              "lookupType": "",
+              "description": "Asset",
+              "defaultValue": "",
+              "filterexpression": "",
+              "preselectIfUnique": true,
+              "classToUseForReferenceWidget": "Asset",
+              "_description_translation": "Asset",
+              "ecqlFilter": {
+                "id": "4sazajh2f61d7hi78ucm7qrjs4uv826ivpz9c1bo9n0sn8iz3cerf",
+                "bindings": {
+                  "server": [],
+                  "client": []
+                }
+              }
+            },
+            {
+              "name": "reading_type",
+              "type": "long",
+              "filter": {
+                "expression": "from LookUp where Id in (/(SELECT \"ReadingType\" FROM \"MeterReading\" WHERE \"Utility\" IS NOT DISTINCT FROM nullif(0{client:utility}, 0) AND \"Asset\" IS NOT DISTINCT FROM nullif(0{client:asset}, 0) AND \"Status\" = 'A')/)"
+              },
+              "required": true,
+              "fieldType": "lookup",
+              "lookupType": "COMMON - ReadingType",
+              "description": "Reading type",
+              "defaultValue": "",
+              "filterexpression": "",
+              "preselectIfUnique": true,
+              "classToUseForReferenceWidget": "",
+              "_description_translation": "Reading type",
+              "ecqlFilter": {
+                "id": "4sazajh2f61d7hi78ucm7qrjs4uv826ivpz9c1bo9n0sn8iz3f7wb",
+                "bindings": {
+                  "server": [],
+                  "client": [
+                    "utility",
+                    "asset"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "reference_date",
+              "type": "datetime",
+              "filter": {
+                "expression": ""
+              },
+              "required": false,
+              "fieldType": "",
+              "lookupType": "",
+              "description": "Reference date",
+              "defaultValue": "",
+              "filterexpression": "",
+              "preselectIfUnique": false,
+              "classToUseForReferenceWidget": "",
+              "_description_translation": "Reference date"
+            },
+            {
+              "name": "period",
+              "type": "long",
+              "filter": {
+                "expression": ""
+              },
+              "required": true,
+              "fieldType": "lookup",
+              "lookupType": "COMMON - DatePart",
+              "description": "Interval",
+              "defaultValue": "326341",
+              "filterexpression": "",
+              "preselectIfUnique": false,
+              "classToUseForReferenceWidget": "",
+              "_description_translation": "Interval"
+            },
+            {
+              "name": "max_number",
+              "type": "integer",
+              "filter": {
+                "expression": ""
+              },
+              "required": true,
+              "fieldType": "free",
+              "lookupType": "",
+              "description": "Max number",
+              "defaultValue": "14",
+              "filterexpression": "",
+              "preselectIfUnique": true,
+              "classToUseForReferenceWidget": "",
+              "_description_translation": "Max number"
+            }
+          ],
+          "_description_translation": "Readings trend",
+          "_valueAxisLabel_translation": "Value",
+          "_categoryAxisLabel_translation": "Date",
+          "_labelField_translation": ""
+        },
+        {
+          "_id": "5e6e18a3-ad8c-406a-84b7-961eb0f6a0c5",
+          "name": "ReadingsConsumption",
+          "type": "bar",
+          "active": true,
+          "height": null,
+          "legend": false,
+          "autoLoad": true,
+          "description": "Readings consumption",
+          "dataSourceName": "crt_readings_consumption",
+          "dataSourceType": "function",
+          "valueAxisLabel": "Value",
+          "dataSourceLimit": 0,
+          "valueAxisFields": [
+            "output"
+          ],
+          "chartOrientation": "vertical",
+          "dataSourceFilter": "",
+          "categoryAxisField": "detection_date",
+          "categoryAxisLabel": "Date",
+          "descriptionWithName": "Readings consumption",
+          "dataSourceParameters": [
+            {
+              "name": "utility",
+              "type": "long",
+              "filter": {
+                "expression": "from Utility where Id in (/(SELECT \"Utility\" FROM \"MeterReading\" WHERE \"Status\" = 'A')/)"
+              },
+              "required": false,
+              "fieldType": "card",
+              "lookupType": "",
+              "description": "Utility",
+              "defaultValue": "",
+              "filterexpression": "",
+              "preselectIfUnique": true,
+              "classToUseForReferenceWidget": "Utility",
+              "_description_translation": "Utility",
+              "ecqlFilter": {
+                "id": "4sazajh2f61d7hi78ucm7qrjs4uv826ivpz9c1bo9n0sn8iz3i117",
+                "bindings": {
+                  "server": [],
+                  "client": []
+                }
+              }
+            },
+            {
+              "name": "asset",
+              "type": "long",
+              "filter": {
+                "expression": "from Asset where Id in (/(SELECT \"Asset\" FROM \"MeterReading\" WHERE \"Status\" = 'A')/)"
+              },
+              "required": false,
+              "fieldType": "card",
+              "lookupType": "",
+              "description": "Asset",
+              "defaultValue": "",
+              "filterexpression": "",
+              "preselectIfUnique": true,
+              "classToUseForReferenceWidget": "Asset",
+              "_description_translation": "Asset",
+              "ecqlFilter": {
+                "id": "4sazajh2f61d7hi78ucm7qrjs4uv826ivpz9c1bo9n0sn8iz3ku63",
+                "bindings": {
+                  "server": [],
+                  "client": []
+                }
+              }
+            },
+            {
+              "name": "reading_type",
+              "type": "long",
+              "filter": {
+                "expression": "from LookUp where Id in (/(SELECT \"ReadingType\" FROM \"MeterReading\" WHERE \"Utility\" IS NOT DISTINCT FROM nullif(0{client:utility}, 0) AND \"Asset\" IS NOT DISTINCT FROM nullif(0{client:asset}, 0) AND \"Status\" = 'A')/)"
+              },
+              "required": true,
+              "fieldType": "lookup",
+              "lookupType": "COMMON - ReadingType",
+              "description": "Reading type",
+              "defaultValue": "",
+              "filterexpression": "",
+              "preselectIfUnique": true,
+              "classToUseForReferenceWidget": "",
+              "_description_translation": "Reading type",
+              "ecqlFilter": {
+                "id": "4sazajh2f61d7hi78ucm7qrjs4uv826ivpz9c1bo9n0sn8iz3nnaz",
+                "bindings": {
+                  "server": [],
+                  "client": [
+                    "utility",
+                    "asset"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "reference_date",
+              "type": "datetime",
+              "filter": {
+                "expression": ""
+              },
+              "required": false,
+              "fieldType": "",
+              "lookupType": "",
+              "description": "Reference date",
+              "defaultValue": "",
+              "filterexpression": "",
+              "preselectIfUnique": false,
+              "classToUseForReferenceWidget": "",
+              "_description_translation": "Reference date"
+            },
+            {
+              "name": "period",
+              "type": "long",
+              "filter": {
+                "expression": ""
+              },
+              "required": true,
+              "fieldType": "lookup",
+              "lookupType": "COMMON - DatePart",
+              "description": "Interval",
+              "defaultValue": "326343",
+              "filterexpression": "",
+              "preselectIfUnique": false,
+              "classToUseForReferenceWidget": "",
+              "_description_translation": "Interval"
+            },
+            {
+              "name": "max_number",
+              "type": "integer",
+              "filter": {
+                "expression": ""
+              },
+              "required": true,
+              "fieldType": "free",
+              "lookupType": "",
+              "description": "Max number",
+              "defaultValue": "12",
+              "filterexpression": "",
+              "preselectIfUnique": false,
+              "classToUseForReferenceWidget": "",
+              "_description_translation": "Max number"
+            }
+          ],
+          "_description_translation": "Readings consumption",
+          "_valueAxisLabel_translation": "Value",
+          "_categoryAxisLabel_translation": "Date"
+        },
+        {
+          "_id": "641be14f-7c83-4e30-a161-6f28faeed948",
+          "name": "Consumptions",
+          "type": "bar",
+          "active": true,
+          "height": null,
+          "legend": false,
+          "autoLoad": true,
+          "description": "Consumptions",
+          "dataSourceName": "crt_consumptions",
+          "dataSourceType": "function",
+          "valueAxisLabel": "Value",
+          "dataSourceLimit": 0,
+          "valueAxisFields": [
+            "output"
+          ],
+          "chartOrientation": "vertical",
+          "dataSourceFilter": "",
+          "categoryAxisField": "period",
+          "categoryAxisLabel": "Interval",
+          "descriptionWithName": "Consumptions",
+          "dataSourceParameters": [
+            {
+              "name": "utility",
+              "type": "long",
+              "filter": {
+                "expression": "from Utility where Id in (/(SELECT \"Utility\" FROM \"MeterReading\" WHERE \"Status\" = 'A')/)"
+              },
+              "required": false,
+              "fieldType": "card",
+              "lookupType": "",
+              "description": "Utility",
+              "defaultValue": "",
+              "filterexpression": "",
+              "preselectIfUnique": true,
+              "classToUseForReferenceWidget": "Utility",
+              "_description_translation": "Utility",
+              "ecqlFilter": {
+                "id": "4sazajh2f61d7hi78ucm7qrjs4uv826ivpz9c1bo9n0sn8iz3qgfv",
+                "bindings": {
+                  "server": [],
+                  "client": []
+                }
+              }
+            },
+            {
+              "name": "asset",
+              "type": "long",
+              "filter": {
+                "expression": "from Asset where Id in (/(SELECT \"Asset\" FROM \"MeterReading\" WHERE \"Status\" = 'A')/)"
+              },
+              "required": false,
+              "fieldType": "card",
+              "lookupType": "",
+              "description": "Asset",
+              "defaultValue": "",
+              "filterexpression": "",
+              "preselectIfUnique": true,
+              "classToUseForReferenceWidget": "Asset",
+              "_description_translation": "Asset",
+              "ecqlFilter": {
+                "id": "4sazajh2f61d7hi78ucm7qrjs4uv826ivpz9c1bo9n0sn8iz3t9kr",
+                "bindings": {
+                  "server": [],
+                  "client": []
+                }
+              }
+            },
+            {
+              "name": "reading_type",
+              "type": "long",
+              "filter": {
+                "expression": "from LookUp where Id in (/(SELECT \"ReadingType\" FROM \"MeterReading\" WHERE \"Utility\" IS NOT DISTINCT FROM nullif(0{client:utility}, 0) AND \"Asset\" IS NOT DISTINCT FROM nullif(0{client:asset}, 0) AND \"Status\" = 'A')/)"
+              },
+              "required": true,
+              "fieldType": "lookup",
+              "lookupType": "COMMON - ReadingType",
+              "description": "Reading type",
+              "defaultValue": "",
+              "filterexpression": "",
+              "preselectIfUnique": true,
+              "classToUseForReferenceWidget": "",
+              "_description_translation": "Reading type",
+              "ecqlFilter": {
+                "id": "4sazajh2f61d7hi78ucm7qrjs4uv826ivpz9c1bo9n0sn8iz3w2pn",
+                "bindings": {
+                  "server": [],
+                  "client": [
+                    "utility",
+                    "asset"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "reference_date",
+              "type": "date",
+              "filter": {
+                "expression": ""
+              },
+              "required": false,
+              "fieldType": "date",
+              "lookupType": "",
+              "description": "Reference date",
+              "defaultValue": "",
+              "filterexpression": "",
+              "preselectIfUnique": false,
+              "classToUseForReferenceWidget": "",
+              "_description_translation": "Reference date"
+            },
+            {
+              "name": "max_number",
+              "type": "integer",
+              "filter": {
+                "expression": ""
+              },
+              "required": true,
+              "fieldType": "free",
+              "lookupType": "",
+              "description": "Max number",
+              "defaultValue": "6",
+              "filterexpression": "",
+              "preselectIfUnique": false,
+              "classToUseForReferenceWidget": "",
+              "_description_translation": "Max number"
+            }
+          ],
+          "_description_translation": "Consumptions",
+          "_valueAxisLabel_translation": "Value",
+          "_categoryAxisLabel_translation": "Interval"
+        },
+        {
+          "_id": "4f8ecbf9-1b84-49b0-9519-4acfc9495221",
+          "name": "ReadingsType",
+          "type": "pie",
+          "active": true,
+          "height": null,
+          "legend": true,
+          "autoLoad": true,
+          "labelField": "reading_type_descr",
+          "description": "Readings type",
+          "dataSourceName": "crt_readings_type",
+          "dataSourceType": "function",
+          "dataSourceLimit": 0,
+          "dataSourceFilter": "",
+          "singleSeriesField": "output",
+          "descriptionWithName": "Readings type",
+          "dataSourceParameters": [
+            {
+              "name": "utility",
+              "type": "long",
+              "filter": {
+                "expression": "from Utility where Id in (/(SELECT \"Utility\" FROM \"MeterReading\" WHERE \"Status\" = 'A')/)"
+              },
+              "required": false,
+              "fieldType": "card",
+              "lookupType": "",
+              "description": "Utility",
+              "defaultValue": "",
+              "filterexpression": "",
+              "preselectIfUnique": true,
+              "classToUseForReferenceWidget": "Utility",
+              "_description_translation": "Utility",
+              "ecqlFilter": {
+                "id": "4sazajh2f61d7hi78ucm7qrjs4uv826ivpz9c1bo9n0sn8iz3yvuj",
+                "bindings": {
+                  "server": [],
+                  "client": []
+                }
+              }
+            },
+            {
+              "name": "asset",
+              "type": "long",
+              "filter": {
+                "expression": "from Asset where Id in (/(SELECT \"Asset\" FROM \"MeterReading\" WHERE \"Status\" = 'A')/)"
+              },
+              "required": false,
+              "fieldType": "card",
+              "lookupType": "",
+              "description": "Asset",
+              "defaultValue": "",
+              "filterexpression": "",
+              "preselectIfUnique": true,
+              "classToUseForReferenceWidget": "Asset",
+              "_description_translation": "Asset",
+              "ecqlFilter": {
+                "id": "y1a2yyhd7uxpx8hfivtpz2bwo2ji1bie9kqqdlf0kjpnp8mxjtbni3",
+                "bindings": {
+                  "server": [],
+                  "client": []
+                }
+              }
+            }
+          ],
+          "_description_translation": "Readings type",
+          "_labelField_translation": "reading_type_descr"
+        }
+      ],
+      "layout": {
+        "rows": [
+          {
+            "id": "extModel7410-1",
+            "columns": [
+              {
+                "width": 0.5,
+                "charts": [
+                  "aa23ca25-b26c-4104-a09d-d281adbc31a2"
+                ]
+              },
+              {
+                "width": 0.5,
+                "charts": [
+                  "5e6e18a3-ad8c-406a-84b7-961eb0f6a0c5"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "extModel7410-2",
+            "columns": [
+              {
+                "width": 0.5,
+                "charts": [
+                  "641be14f-7c83-4e30-a161-6f28faeed948"
+                ]
+              },
+              {
+                "width": 0.5,
+                "charts": [
+                  "4f8ecbf9-1b84-49b0-9519-4acfc9495221"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "421653": {
+      "_id": 421653,
+      "name": "CorrectiveMaintSummary",
+      "description": "Corrective maintenance summary",
+      "_description_translation": "Corrective maintenance summary",
+      "active": true,
+      "charts": [
+        {
+          "_id": "14056f2a-f429-4781-afa0-a9a42464954e",
+          "name": "MTTR",
+          "type": "bar",
+          "active": true,
+          "height": "",
+          "legend": false,
+          "autoLoad": true,
+          "description": "Mean time to repair",
+          "dataSourceName": "crt_mttr",
+          "dataSourceType": "function",
+          "valueAxisLabel": "Hours",
+          "dataSourceLimit": 0,
+          "valueAxisFields": [
+            "value"
+          ],
+          "chartOrientation": "vertical",
+          "dataSourceFilter": "",
+          "categoryAxisField": "grouping_descr",
+          "categoryAxisLabel": "Grouping",
+          "dataSourceParameters": [
+            {
+              "name": "site_id",
+              "type": "long",
+              "filter": {
+                "expression": "from Building"
+              },
+              "required": false,
+              "fieldType": "card",
+              "lookupType": "",
+              "defaultValue": "",
+              "filterexpression": "",
+              "preselectIfUnique": false,
+              "classToUseForReferenceWidget": "Site",
+              "_description_translation": "Site (default all)",
+              "ecqlFilter": {
+                "id": "h8zxz35km0ykqb5v3qiwl2qggm6rboc03wphda1j5oqpqvuj",
+                "bindings": {
+                  "server": [],
+                  "client": []
+                }
+              }
+            },
+            {
+              "name": "ci_id",
+              "type": "long",
+              "filter": {
+                "expression": "FROM Asset WHERE Id IN (/(SELECT \"Id\" FROM \"Asset\" WHERE \"Building\" = 0{client:site_id} AND \"Status\" = 'A')/)"
+              },
+              "required": false,
+              "fieldType": "card",
+              "ecqlFilter": {
+                "id": "h8zxz35km0ykqb5v3qiwl2qggm6rboc03wphda1j5oqptozf",
+                "bindings": {
+                  "server": [],
+                  "client": [
+                    "site_id"
+                  ]
+                }
+              },
+              "lookupType": "",
+              "defaultValue": "",
+              "filterexpression": "FROM Asset WHERE Id IN (/(SELECT \"Id\" FROM \"Asset\" WHERE \"Building\" = 0{client:site_id} AND \"Status\" = 'A')/)",
+              "preselectIfUnique": true,
+              "classToUseForReferenceWidget": "Asset",
+              "_description_translation": "Element (default all)"
+            },
+            {
+              "name": "grouping_id",
+              "type": "long",
+              "filter": {
+                "expression": ""
+              },
+              "required": false,
+              "fieldType": "lookup",
+              "lookupType": "CRT-CorrectiveMaintSummary - Grouping",
+              "description": "grouping_id",
+              "defaultValue": "",
+              "filterexpression": "",
+              "preselectIfUnique": false,
+              "classToUseForReferenceWidget": "",
+              "_description_translation": "Grouping (default priority)"
+            }
+          ],
+          "_description_translation": "Mean time to repair",
+          "_valueAxisLabel_translation": "Hours",
+          "_categoryAxisLabel_translation": "Grouping"
+        },
+        {
+          "_id": "f7a8162b-e401-45ef-8ffb-5e9a83d65c4b",
+          "name": "MTBF",
+          "type": "bar",
+          "steps": 0,
+          "active": true,
+          "height": "",
+          "legend": false,
+          "bgcolor": "",
+          "fgcolor": "",
+          "maximum": 0,
+          "minimum": 0,
+          "autoLoad": true,
+          "labelField": "",
+          "description": "Mean time between failure",
+          "dataSourceName": "crt_mtbf",
+          "dataSourceType": "function",
+          "valueAxisLabel": "Hours",
+          "dataSourceLimit": 0,
+          "valueAxisFields": [
+            "site",
+            "value"
+          ],
+          "chartOrientation": "vertical",
+          "dataSourceFilter": "",
+          "categoryAxisField": "site",
+          "categoryAxisLabel": "Sites",
+          "singleSeriesField": "",
+          "dataSourceParameters": [],
+          "_description_translation": "Mean time between failure",
+          "_valueAxisLabel_translation": "Hours",
+          "_categoryAxisLabel_translation": "Sites",
+          "_labelField_translation": ""
+        }
+      ],
+      "layout": {
+        "rows": [
+          {
+            "id": "extModel5365-1",
+            "columns": [
+              {
+                "width": 0.5,
+                "charts": [
+                  "14056f2a-f429-4781-afa0-a9a42464954e"
+                ]
+              },
+              {
+                "width": 0.5,
+                "charts": [
+                  "f7a8162b-e401-45ef-8ffb-5e9a83d65c4b"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "280448": {
+      "_id": 280448,
+      "name": "PrevMaintSummary",
+      "description": "Preventive maintenance summary",
+      "_description_translation": "Preventive maintenance summary",
+      "active": true,
+      "charts": [
+        {
+          "_id": "2f68c3b6-2833-48c9-aaa5-90069bbe235c",
+          "name": "TaskStatus",
+          "type": "pie",
+          "steps": 0,
+          "active": true,
+          "height": "",
+          "legend": true,
+          "bgcolor": "",
+          "fgcolor": "",
+          "maximum": 0,
+          "minimum": 0,
+          "autoLoad": true,
+          "labelField": "task_status",
+          "description": "Task status",
+          "dataSourceName": "crt_taskstatus",
+          "dataSourceType": "function",
+          "valueAxisLabel": "",
+          "dataSourceLimit": 0,
+          "valueAxisFields": [],
+          "chartOrientation": "horizontal",
+          "dataSourceFilter": "",
+          "categoryAxisField": "",
+          "categoryAxisLabel": "",
+          "singleSeriesField": "quantity",
+          "descriptionWithName": "Task status",
+          "dataSourceParameters": [
+            {
+              "name": "process_id",
+              "type": "long",
+              "filter": {
+                "expression": "from PreventiveMaint where Id in (/(SELECT \"Id\" FROM \"PreventiveMaint\" WHERE _cm3_lookup_code(\"ProcessStatus\") IN ('PM-Execution', 'PM-Suspension', 'PM-Completed') AND \"Status\" = 'A')/)"
+              },
+              "required": false,
+              "fieldType": "card",
+              "ecqlFilter": {
+                "id": "682bphg0i149um4d3qhqt81tsyexagicbby1m7v",
+                "bindings": {
+                  "server": [],
+                  "client": []
+                }
+              },
+              "lookupType": "",
+              "description": "Maintenance (default last)",
+              "defaultValue": "",
+              "filterexpression": "from PreventiveMaint where Id in (/(SELECT \"Id\" FROM \"PreventiveMaint\" WHERE _cm3_lookup_code(\"ProcessStatus\") IN ('PM-Execution', 'PM-Suspension', 'PM-Completed') AND \"Status\" = 'A')/)",
+              "preselectIfUnique": false,
+              "_description_translation": "Maintenance (default last)",
+              "classToUseForReferenceWidget": "PreventiveMaint"
+            }
+          ],
+          "_quantity_translation": "Quantit\u00e0",
+          "_labelField_translation": "task_status",
+          "_description_translation": "Task status",
+          "_task_status_translation": "Stato sottoattivit\u00e0",
+          "_valueAxisLabel_translation": "",
+          "_categoryAxisLabel_translation": ""
+        },
+        {
+          "_id": "1bba3100-06ae-4884-a49e-87d2721f3a9e",
+          "name": "TeamWorkload",
+          "type": "bar",
+          "steps": 0,
+          "active": true,
+          "height": "",
+          "legend": false,
+          "bgcolor": "",
+          "fgcolor": "",
+          "maximum": 0,
+          "minimum": 0,
+          "autoLoad": true,
+          "labelField": "",
+          "description": "Team workload",
+          "dataSourceName": "crt_teamworkload",
+          "dataSourceType": "function",
+          "valueAxisLabel": "Quantity",
+          "dataSourceLimit": 0,
+          "valueAxisFields": [
+            "quantity"
+          ],
+          "chartOrientation": "horizontal",
+          "dataSourceFilter": "",
+          "categoryAxisField": "team_descr",
+          "categoryAxisLabel": "Team",
+          "singleSeriesField": "",
+          "descriptionWithName": "Team workload",
+          "dataSourceParameters": [
+            {
+              "name": "from_date",
+              "type": "date",
+              "filter": {
+                "expression": ""
+              },
+              "required": false,
+              "fieldType": "date",
+              "lookupType": "",
+              "description": "From date (default year start)",
+              "defaultValue": "",
+              "filterexpression": "",
+              "preselectIfUnique": false,
+              "_description_translation": "From date (default year start)",
+              "classToUseForReferenceWidget": ""
+            },
+            {
+              "name": "to_date",
+              "type": "date",
+              "filter": {
+                "expression": ""
+              },
+              "required": false,
+              "fieldType": "date",
+              "lookupType": "",
+              "description": "To date (default year end)",
+              "defaultValue": "",
+              "filterexpression": "",
+              "preselectIfUnique": false,
+              "_description_translation": "To date (default year end)",
+              "classToUseForReferenceWidget": ""
+            }
+          ],
+          "_quantity_translation": "Quantit\u00e0",
+          "_labelField_translation": "",
+          "_team_descr_translation": "Squadra",
+          "_description_translation": "Team workload",
+          "_valueAxisLabel_translation": "Quantity",
+          "_categoryAxisLabel_translation": "Team"
+        },
+        {
+          "_id": "64d27ccd-947b-45ea-a566-0d650f3d3c9f",
+          "name": "PMC",
+          "type": "pie",
+          "steps": 0,
+          "active": true,
+          "height": "",
+          "legend": true,
+          "bgcolor": "",
+          "fgcolor": "",
+          "maximum": 0,
+          "minimum": 0,
+          "autoLoad": false,
+          "labelField": "state",
+          "description": "Preventive maintenance compliance",
+          "dataSourceName": "crt_pm_pmc",
+          "dataSourceType": "function",
+          "valueAxisLabel": "",
+          "dataSourceLimit": 0,
+          "valueAxisFields": [],
+          "chartOrientation": "horizontal",
+          "dataSourceFilter": "",
+          "_type_description": "Torta",
+          "categoryAxisField": "",
+          "categoryAxisLabel": "",
+          "singleSeriesField": "percentage",
+          "_state_translation": "state",
+          "descriptionWithName": "Preventive maintenance compliance",
+          "dataSourceParameters": [
+            {
+              "name": "start_date",
+              "type": "date",
+              "filter": {
+                "expression": ""
+              },
+              "required": false,
+              "fieldType": "date",
+              "lookupType": "",
+              "description": "start_date",
+              "defaultValue": "",
+              "filterexpression": "",
+              "preselectIfUnique": false,
+              "_description_translation": "Start date",
+              "classToUseForReferenceWidget": ""
+            },
+            {
+              "name": "final_date",
+              "type": "date",
+              "filter": {
+                "expression": ""
+              },
+              "required": false,
+              "fieldType": "date",
+              "lookupType": "",
+              "description": "final_date",
+              "defaultValue": "",
+              "filterexpression": "",
+              "preselectIfUnique": false,
+              "_description_translation": "Final date",
+              "classToUseForReferenceWidget": ""
+            },
+            {
+              "name": "building",
+              "type": "long",
+              "filter": {
+                "expression": ""
+              },
+              "required": false,
+              "fieldType": "card",
+              "lookupType": "",
+              "description": "building",
+              "defaultValue": "",
+              "filterexpression": "",
+              "preselectIfUnique": false,
+              "_description_translation": "Building",
+              "classToUseForReferenceWidget": "Building"
+            }
+          ],
+          "_labelField_translation": "State",
+          "_percentage_translation": "percentage",
+          "_description_translation": "Preventive maintenance compliance",
+          "_valueAxisLabel_translation": "",
+          "_categoryAxisLabel_translation": ""
+        },
+        {
+          "_id": "b18b53da-ec68-4e00-8005-2d7bee8fdedd",
+          "name": "PMP",
+          "type": "pie",
+          "steps": 0,
+          "active": true,
+          "height": "",
+          "legend": true,
+          "bgcolor": "",
+          "fgcolor": "",
+          "maximum": 0,
+          "minimum": 0,
+          "autoLoad": true,
+          "labelField": "process",
+          "description": "Planned maintenance percentage",
+          "dataSourceName": "crt_pm_pmp",
+          "dataSourceType": "function",
+          "valueAxisLabel": "",
+          "dataSourceLimit": 0,
+          "valueAxisFields": [],
+          "chartOrientation": "horizontal",
+          "dataSourceFilter": "",
+          "_type_description": "Torta",
+          "categoryAxisField": "",
+          "categoryAxisLabel": "",
+          "singleSeriesField": "percentage",
+          "descriptionWithName": "Planned maintenance percentage",
+          "_process_translation": "process",
+          "dataSourceParameters": [
+            {
+              "name": "building",
+              "type": "long",
+              "filter": {
+                "expression": ""
+              },
+              "required": false,
+              "fieldType": "card",
+              "lookupType": "",
+              "description": "building",
+              "defaultValue": "",
+              "filterexpression": "",
+              "preselectIfUnique": false,
+              "_description_translation": "Building",
+              "classToUseForReferenceWidget": "Building"
+            }
+          ],
+          "_labelField_translation": "Processes",
+          "_percentage_translation": "percentage",
+          "_description_translation": "Planned maintenance percentage",
+          "_valueAxisLabel_translation": "",
+          "_categoryAxisLabel_translation": ""
+        }
+      ],
+      "layout": {
+        "rows": [
+          {
+            "id": "extModel2848-1",
+            "columns": [
+              {
+                "width": 0.5,
+                "charts": [
+                  "1bba3100-06ae-4884-a49e-87d2721f3a9e"
+                ]
+              },
+              {
+                "width": 0.5,
+                "charts": [
+                  "2f68c3b6-2833-48c9-aaa5-90069bbe235c"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "extModel1983-1",
+            "columns": [
+              {
+                "width": 0.5,
+                "charts": [
+                  "64d27ccd-947b-45ea-a566-0d650f3d3c9f"
+                ]
+              },
+              {
+                "width": 0.5,
+                "charts": [
+                  "b18b53da-ec68-4e00-8005-2d7bee8fdedd"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,71 @@
+{
+    "success": true,
+    "data": [
+        {
+            "_id": 261338,
+            "name": "Requester",
+            "description": "Requester",
+            "_description_translation": "Requester",
+            "type": "default",
+            "email": null,
+            "active": true
+        },
+        {
+            "_id": 261344,
+            "name": "Team",
+            "description": "Team",
+            "_description_translation": "Team",
+            "type": "default",
+            "email": null,
+            "active": true
+        },
+        {
+            "_id": 261340,
+            "name": "MaintOffice",
+            "description": "Maintenance office",
+            "_description_translation": "Maintenance office",
+            "type": "default",
+            "email": "maintoffice@mycompany.com",
+            "active": true
+        },
+        {
+            "_id": 279376,
+            "name": "Supplier",
+            "description": "Supplier",
+            "_description_translation": "Supplier",
+            "type": "default",
+            "email": null,
+            "active": true
+        },
+        {
+            "_id": 192180,
+            "name": "SuperUser",
+            "description": "Super user",
+            "_description_translation": "Super user",
+            "type": "admin",
+            "email": null,
+            "active": true
+        },
+        {
+            "_id": 279643,
+            "name": "AdminOffice",
+            "description": "Administrative office",
+            "_description_translation": "Administrative office",
+            "type": "default",
+            "email": "adminoffice@mycompany.com",
+            "active": true
+        },
+        {
+            "_id": 261342,
+            "name": "Guest",
+            "description": "External portal",
+            "_description_translation": "External portal",
+            "type": "default",
+            "email": null,
+            "active": true
+        }
+    ],
+    "meta": {
+        "total": 7
+    }
+}

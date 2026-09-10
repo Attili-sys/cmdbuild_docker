@@ -1,0 +1,17 @@
+       Owner        |   Code   |  Type   | Active | MinimumZoom | MaximumZoom 
+--------------------+----------+---------+--------+-------------+-------------
+ "Building"         | Position | point   | t      |           2 |          17
+ "Computer"         | Position | point   | t      |          20 |          25
+ "FireExtinguisher" | Position | point   | t      |          20 |          25
+ "Floor"            | Drawing  | shape   | t      |          18 |          25
+ "GreenArea"        | Area     | polygon | t      |          18 |          25
+ "Meter"            | Position | point   | t      |          20 |          25
+ "ParkingLot"       | Area     | polygon | t      |          18 |          25
+ "Room"             | Area     | polygon | t      |          18 |          25
+ "Sink"             | Position | point   | t      |          20 |          25
+ "Split"            | Position | point   | t      |          20 |          25
+ "SupportSurface"   | Area     | polygon | t      |          20 |          25
+ "Toilet"           | Position | point   | t      |          20 |          25
+ "Unit"             | Area     | polygon | t      |          18 |          25
+(13 rows)
+

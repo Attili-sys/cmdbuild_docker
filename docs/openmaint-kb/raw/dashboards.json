@@ -1,0 +1,36 @@
+{
+    "success": true,
+    "data": [
+        {
+            "_id": 280447,
+            "name": "CISummary",
+            "description": "CI summary",
+            "_description_translation": "CI summary",
+            "active": true
+        },
+        {
+            "_id": 326350,
+            "name": "ReadingConsumptionSummary",
+            "description": "Reading and consumption summary",
+            "_description_translation": "Reading and consumption summary",
+            "active": true
+        },
+        {
+            "_id": 421653,
+            "name": "CorrectiveMaintSummary",
+            "description": "Corrective maintenance summary",
+            "_description_translation": "Corrective maintenance summary",
+            "active": true
+        },
+        {
+            "_id": 280448,
+            "name": "PrevMaintSummary",
+            "description": "Preventive maintenance summary",
+            "_description_translation": "Preventive maintenance summary",
+            "active": true
+        }
+    ],
+    "meta": {
+        "total": 4
+    }
+}

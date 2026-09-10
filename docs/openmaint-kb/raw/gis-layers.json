@@ -1,0 +1,11 @@
+{
+    "success": false,
+    "messages": [
+        {
+            "level": "ERROR",
+            "show_user": false,
+            "message": "generic error",
+            "_message_translation": "generic error"
+        }
+    ]
+}

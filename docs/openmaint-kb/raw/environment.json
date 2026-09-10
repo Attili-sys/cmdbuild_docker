@@ -1,0 +1,86 @@
+{
+  "inspection_date": "2026-09-10",
+  "environment": {
+    "application": "openMAINT",
+    "openmaint_version": "2.4.2",
+    "cmdbuild_version": "4.2.0",
+    "build_info": "8fa54c4/release/4.2.0 (2026-03-26T19:23:58Z)",
+    "version_full": "openMAINT 2.4.2-4.2.0",
+    "database": "PostgreSQL 17.11 with PostGIS 3.5",
+    "database_name": "openmaint",
+    "application_server": "Apache Tomcat 11.0.13",
+    "jdk": "Eclipse Adoptium JDK 21 (21.0.9+10-LTS)",
+    "docker_image_app": "itmicus/cmdbuild:om-2.4.2-4.2.0",
+    "docker_image_db": "postgis/postgis:17-3.5-alpine",
+    "docker_image_admin": "dpage/pgadmin4:9.10.0",
+    "database_dump_used": "demo.dump.xz",
+    "containers": {
+      "openmaint_app": {
+        "port_host": "127.0.0.1:8090",
+        "port_container": "8080",
+        "status": "healthy"
+      },
+      "openmaint_db": {
+        "port_host": "127.0.0.1:5432",
+        "port_container": "5432",
+        "status": "healthy"
+      },
+      "openmaint_pgadmin": {
+        "port_host": "127.0.0.1:5050",
+        "port_container": "80",
+        "status": "healthy"
+      }
+    },
+    "urls": {
+      "application": "http://127.0.0.1:8090/cmdbuild/ui/",
+      "api_base": "http://127.0.0.1:8090/cmdbuild/services/rest/v3",
+      "pgadmin": "http://127.0.0.1:5050"
+    },
+    "volumes": [
+      "db (PostgreSQL data)",
+      "tomcat (Tomcat application state)"
+    ],
+    "network": "openmaint-net (bridge)"
+  },
+  "configuration": {
+    "CMDBUILD_DUMP": "demo.dump.xz",
+    "JAVA_OPTS": "-Xmx6000m -Xms3000m",
+    "OPENMAINT_DB_USER": "openmaint",
+    "OPENMAINT_DB_PASSWORD": "[REDACTED \u2014 default: openmaint]",
+    "POSTGRES_USER": "postgres",
+    "POSTGRES_PASSWORD": "[REDACTED \u2014 default: postgres]",
+    "POSTGRES_DB": "openmaint",
+    "POSTGRES_HOST": "openmaint_db",
+    "POSTGRES_PORT": "5432"
+  },
+  "security_observations": [
+    "Default admin credentials (admin/admin) in use \u2014 MUST change before shared access",
+    "Default postgres superuser credentials (postgres/postgres) \u2014 MUST change before shared access",
+    "Default application DB user (openmaint/openmaint) \u2014 MUST change before shared access",
+    "No TLS/HTTPS configured \u2014 localhost POC only",
+    "pgAdmin exposed on localhost \u2014 do not expose in production",
+    "All services bound to 127.0.0.1 only (corrected from upstream compose)"
+  ],
+  "dms_config": {
+    "service_type": "postgres",
+    "enabled": true
+  },
+  "modules": {
+    "workflow_engine": true,
+    "gis_module": true,
+    "bim_module": true
+  },
+  "summary_counts": {
+    "classes": 209,
+    "domains": 108,
+    "lookup_types": 112,
+    "lookup_values": 2025,
+    "processes": 5,
+    "reports": 15,
+    "dashboards": 4,
+    "roles": 7,
+    "gis_configured_classes": 13,
+    "bim_projects": 3,
+    "scheduled_jobs": 5
+  }
+}

@@ -1,0 +1,548 @@
+{
+    "success": true,
+    "data": [
+        {
+            "_id": "AssetModbusConfig",
+            "name": "AssetModbusConfig",
+            "description": "Asset - Modbus configurations"
+        },
+        {
+            "_id": "AuthorSurvey",
+            "name": "AuthorSurvey",
+            "description": "Author - Surveys"
+        },
+        {
+            "_id": "BdgCenterBdgItem",
+            "name": "BdgCenterBdgItem",
+            "description": "Budget center - Budget items"
+        },
+        {
+            "_id": "BdgItemAccMov",
+            "name": "BdgItemAccMov",
+            "description": "Budget item - Accounting movements"
+        },
+        {
+            "_id": "BudgetBudgetCenter",
+            "name": "BudgetBudgetCenter",
+            "description": "Budget - Budget centers"
+        },
+        {
+            "_id": "BudgetBudgetItem",
+            "name": "BudgetBudgetItem",
+            "description": "Budget - Budget items"
+        },
+        {
+            "_id": "BuildingCI",
+            "name": "BuildingCI",
+            "description": "Building - Configuration items"
+        },
+        {
+            "_id": "BuildingFloor",
+            "name": "BuildingFloor",
+            "description": "Building - Floors"
+        },
+        {
+            "_id": "BuildingRoom",
+            "name": "BuildingRoom",
+            "description": "Building - Rooms"
+        },
+        {
+            "_id": "BuildingUnit",
+            "name": "BuildingUnit",
+            "description": "Building - Units"
+        },
+        {
+            "_id": "BuyerInvoice",
+            "name": "BuyerInvoice",
+            "description": "Company - Invoices"
+        },
+        {
+            "_id": "CIConsumable",
+            "name": "CIConsumable",
+            "description": "Configuration items - Consumables"
+        },
+        {
+            "_id": "CIListMaintProcess",
+            "name": "CIListMaintProcess",
+            "description": "Configuration items - Maintenance processes"
+        },
+        {
+            "_id": "CIMaintProcess",
+            "name": "CIMaintProcess",
+            "description": "Configuration item - Maintenance processes"
+        },
+        {
+            "_id": "CISubsetCI",
+            "name": "CISubsetCI",
+            "description": "CI subsets - Items"
+        },
+        {
+            "_id": "CISubsetMaintProcess",
+            "name": "CISubsetMaintProcess",
+            "description": "CI subset - Maintenance processes"
+        },
+        {
+            "_id": "CISubsetPrevMaintCnf",
+            "name": "CISubsetPrevMaintCnf",
+            "description": "CI subset - Prev. maint. configurations"
+        },
+        {
+            "_id": "CITopic",
+            "name": "CITopic",
+            "description": "CI - Topic"
+        },
+        {
+            "_id": "CalEntityClass",
+            "name": "CalEntityClass",
+            "description": "Calendar entity - Classes"
+        },
+        {
+            "_id": "CatCorrectMaintConf",
+            "name": "CatCorrectMaintConf",
+            "description": "Category - Corrective maint. configurations"
+        },
+        {
+            "_id": "ClassCalConfig",
+            "name": "ClassCalConfig",
+            "description": "Class - Calendar configurations"
+        },
+        {
+            "_id": "CompCorrectMaintConf",
+            "name": "CompCorrectMaintConf",
+            "description": "Company - Correct. maint. configs"
+        },
+        {
+            "_id": "CompPrevMaintConfig",
+            "name": "CompPrevMaintConfig",
+            "description": "Company - Prev. maint. configs"
+        },
+        {
+            "_id": "CompanyEmployee",
+            "name": "CompanyEmployee",
+            "description": "Company - Employees"
+        },
+        {
+            "_id": "CompanyMaintProcess",
+            "name": "CompanyMaintProcess",
+            "description": "Company - Maintenance processes"
+        },
+        {
+            "_id": "CompanyTeam",
+            "name": "CompanyTeam",
+            "description": "Company - Teams"
+        },
+        {
+            "_id": "ComplexBuilding",
+            "name": "ComplexBuilding",
+            "description": "Complex - Buildings"
+        },
+        {
+            "_id": "ComplexCI",
+            "name": "ComplexCI",
+            "description": "Complex - Configuration items"
+        },
+        {
+            "_id": "ComplexFloor",
+            "name": "ComplexFloor",
+            "description": "Complex - Floors"
+        },
+        {
+            "_id": "ComplexRoom",
+            "name": "ComplexRoom",
+            "description": "Complex - Rooms"
+        },
+        {
+            "_id": "ComplexUnit",
+            "name": "ComplexUnit",
+            "description": "Complex - Units"
+        },
+        {
+            "_id": "ConsblPurchOrdRow",
+            "name": "ConsblPurchOrdRow",
+            "description": "Consumable - Purchase order rows"
+        },
+        {
+            "_id": "ConsblWrhMovRow",
+            "name": "ConsblWrhMovRow",
+            "description": "Consumable - Warehouse movement rows"
+        },
+        {
+            "_id": "ContractAccMov",
+            "name": "ContractAccMov",
+            "description": "Contract - Accounting movements"
+        },
+        {
+            "_id": "ContractMaintProcess",
+            "name": "ContractMaintProcess",
+            "description": "Contract - MaintProcesses"
+        },
+        {
+            "_id": "ContractMaintSLA",
+            "name": "ContractMaintSLA",
+            "description": "Contract - Maintenance SLAs"
+        },
+        {
+            "_id": "ContractPriceList",
+            "name": "ContractPriceList",
+            "description": "Contracts - Price lists"
+        },
+        {
+            "_id": "CustomerContract",
+            "name": "CustomerContract",
+            "description": "Company - Contracts"
+        },
+        {
+            "_id": "DimensionConsumable",
+            "name": "DimensionConsumable",
+            "description": "Dimension - Consumables"
+        },
+        {
+            "_id": "DimensionsCI",
+            "name": "DimensionsCI",
+            "description": "Dimensions - CI"
+        },
+        {
+            "_id": "DstSiteWrhMovement",
+            "name": "DstSiteWrhMovement",
+            "description": "Site - Warehouse movements"
+        },
+        {
+            "_id": "EmployeeMaintProcess",
+            "name": "EmployeeMaintProcess",
+            "description": "Employee - Maintenance processes"
+        },
+        {
+            "_id": "EstimateMovActualMov",
+            "name": "EstimateMovActualMov",
+            "description": "AccountingMov (Estimate) - AccountingMovements (Actual)"
+        },
+        {
+            "_id": "FloorCI",
+            "name": "FloorCI",
+            "description": "Floor - Configuration items"
+        },
+        {
+            "_id": "FloorMaintProcess",
+            "name": "FloorMaintProcess",
+            "description": "Floor - Maintenance processes"
+        },
+        {
+            "_id": "FloorRoom",
+            "name": "FloorRoom",
+            "description": "Floor - Rooms"
+        },
+        {
+            "_id": "FloorUnit",
+            "name": "FloorUnit",
+            "description": "Floor - Units"
+        },
+        {
+            "_id": "InvoiceAccMov",
+            "name": "InvoiceAccMov",
+            "description": "Invoice - Accounting movements"
+        },
+        {
+            "_id": "InvoiceCI",
+            "name": "InvoiceCI",
+            "description": "Invoice - Configuration items"
+        },
+        {
+            "_id": "LenderInvoice",
+            "name": "LenderInvoice",
+            "description": "Company - Invoices"
+        },
+        {
+            "_id": "MaintCatMaintProcess",
+            "name": "MaintCatMaintProcess",
+            "description": "Category - Maintenance processes"
+        },
+        {
+            "_id": "MaintCatSubcat",
+            "name": "MaintCatSubcat",
+            "description": "Category - Subcategories"
+        },
+        {
+            "_id": "MaintCatTopic",
+            "name": "MaintCatTopic",
+            "description": "Category - Topics"
+        },
+        {
+            "_id": "MaintManualPrevConf",
+            "name": "MaintManualPrevConf",
+            "description": "Maintenance manual - Prev. maint. configs"
+        },
+        {
+            "_id": "MaintProcAccMov",
+            "name": "MaintProcAccMov",
+            "description": "MaintProcess - Accounting movements"
+        },
+        {
+            "_id": "MaintProcTasks",
+            "name": "MaintProcTasks",
+            "description": "Maintenance process - Prev. maint. tasks"
+        },
+        {
+            "_id": "MaintProcWrhMov",
+            "name": "MaintProcWrhMov",
+            "description": "Maint process - Warehouse movements"
+        },
+        {
+            "_id": "MaintProcessTopic",
+            "name": "MaintProcessTopic",
+            "description": "Maintenance processes - Topics"
+        },
+        {
+            "_id": "MaintSubcatMaintProc",
+            "name": "MaintSubcatMaintProc",
+            "description": "Subcategory - Maintenance processes"
+        },
+        {
+            "_id": "MaintSubcatMaintSLA",
+            "name": "MaintSubcatMaintSLA",
+            "description": "Subcategory - Maintenance SLAs"
+        },
+        {
+            "_id": "MaintSubcatTopic",
+            "name": "MaintSubcatTopic",
+            "description": "Subcategory - Topics"
+        },
+        {
+            "_id": "PLEntryAccMov",
+            "name": "PLEntryAccMov",
+            "description": "Price list entry - Accounting movements"
+        },
+        {
+            "_id": "ParentCICI",
+            "name": "ParentCICI",
+            "description": "Parent CI - CIs"
+        },
+        {
+            "_id": "ParentProcChildProc",
+            "name": "ParentProcChildProc",
+            "description": "Parent process - Child processes"
+        },
+        {
+            "_id": "PartTableTableRow",
+            "name": "PartTableTableRow",
+            "description": "Partition table - Partition table rows"
+        },
+        {
+            "_id": "PartitionTBudgetC",
+            "name": "PartitionTBudgetC",
+            "description": "Partion table - Budget centers"
+        },
+        {
+            "_id": "PrchOrdWrhMov",
+            "name": "PrchOrdWrhMov",
+            "description": "Purchase order - Warehouse movements"
+        },
+        {
+            "_id": "PrevConfigPrevMaint",
+            "name": "PrevConfigPrevMaint",
+            "description": "Prev. maint. configuration - Preventive maintenances"
+        },
+        {
+            "_id": "PrevMaintDefConfig",
+            "name": "PrevMaintDefConfig",
+            "description": "Prev. maint. definition - Prev. maint. configs"
+        },
+        {
+            "_id": "PrevMaintDefTask",
+            "name": "PrevMaintDefTask",
+            "description": "PrevMaintDef - PrevMaintTask"
+        },
+        {
+            "_id": "PriceListAccMov",
+            "name": "PriceListAccMov",
+            "description": "Price list - Accounting movements"
+        },
+        {
+            "_id": "PriceListPriceEntry",
+            "name": "PriceListPriceEntry",
+            "description": "Price list - Price list entries"
+        },
+        {
+            "_id": "ProcessMaintSLA",
+            "name": "ProcessMaintSLA",
+            "description": "Processes - Maintenance SLAs"
+        },
+        {
+            "_id": "ProcessSurvey",
+            "name": "ProcessSurvey",
+            "description": "Process - Survey"
+        },
+        {
+            "_id": "PurchOrdRowWrhMovRow",
+            "name": "PurchOrdRowWrhMovRow",
+            "description": "Purch. order row - Wrh. movement rows"
+        },
+        {
+            "_id": "PurchOrderOrderRow",
+            "name": "PurchOrderOrderRow",
+            "description": "Purchase order - Purch. order rows"
+        },
+        {
+            "_id": "RequesterMaintProc",
+            "name": "RequesterMaintProc",
+            "description": "Requester - Maintenance processes"
+        },
+        {
+            "_id": "RoomCI",
+            "name": "RoomCI",
+            "description": "Room - Configuration items"
+        },
+        {
+            "_id": "RoomMaintProcess",
+            "name": "RoomMaintProcess",
+            "description": "Room - Maintenance processes"
+        },
+        {
+            "_id": "SiteAccMov",
+            "name": "SiteAccMov",
+            "description": "Site - Accounting movements"
+        },
+        {
+            "_id": "SiteBudget",
+            "name": "SiteBudget",
+            "description": "Site - Budgets"
+        },
+        {
+            "_id": "SiteBudgetCenter",
+            "name": "SiteBudgetCenter",
+            "description": "Site - Budget centers"
+        },
+        {
+            "_id": "SiteCISubset",
+            "name": "SiteCISubset",
+            "description": "Site - CI subsets"
+        },
+        {
+            "_id": "SiteContract",
+            "name": "SiteContract",
+            "description": "Site - Contracts"
+        },
+        {
+            "_id": "SiteCorrMaintConfig",
+            "name": "SiteCorrMaintConfig",
+            "description": "Sites - Corrective maint. configurations"
+        },
+        {
+            "_id": "SiteMaintManual",
+            "name": "SiteMaintManual",
+            "description": "Site - Maintenance manuals"
+        },
+        {
+            "_id": "SiteMaintProcess",
+            "name": "SiteMaintProcess",
+            "description": "Site - Maintenance processes"
+        },
+        {
+            "_id": "SiteMaintSLA",
+            "name": "SiteMaintSLA",
+            "description": "Site - Maintenance SLAs"
+        },
+        {
+            "_id": "SitePartitionTable",
+            "name": "SitePartitionTable",
+            "description": "Site - Partition tables"
+        },
+        {
+            "_id": "SitePrevMaintConfig",
+            "name": "SitePrevMaintConfig",
+            "description": "Site - Prev. maint. configurations"
+        },
+        {
+            "_id": "SrcSiteWrhMovement",
+            "name": "SrcSiteWrhMovement",
+            "description": "Site - Warehouse movements"
+        },
+        {
+            "_id": "SubcatCorrMaintConf",
+            "name": "SubcatCorrMaintConf",
+            "description": "Subcategory - Corrective maint. configurations"
+        },
+        {
+            "_id": "SupervisorTeam",
+            "name": "SupervisorTeam",
+            "description": "Employee - Teams"
+        },
+        {
+            "_id": "SupplierCI",
+            "name": "SupplierCI",
+            "description": "Supplier - Configuration items"
+        },
+        {
+            "_id": "SupplierContract",
+            "name": "SupplierContract",
+            "description": "Company - Contracts"
+        },
+        {
+            "_id": "SupplierPurchOrder",
+            "name": "SupplierPurchOrder",
+            "description": "Supplier - Purchase orders"
+        },
+        {
+            "_id": "SupplierUser",
+            "name": "SupplierUser",
+            "description": "Suppliers - Users"
+        },
+        {
+            "_id": "TeamCorrMaintConfig",
+            "name": "TeamCorrMaintConfig",
+            "description": "Team - Corrective maint. configurations"
+        },
+        {
+            "_id": "TeamMaintProcess",
+            "name": "TeamMaintProcess",
+            "description": "Team - Maintenance processes"
+        },
+        {
+            "_id": "TeamMaintSLA",
+            "name": "TeamMaintSLA",
+            "description": "Team - Maintenance SLAs"
+        },
+        {
+            "_id": "TeamPrevMaintConfig",
+            "name": "TeamPrevMaintConfig",
+            "description": "Team - Prev. maint. configurations"
+        },
+        {
+            "_id": "TeamUser",
+            "name": "TeamUser",
+            "description": "Teams - Users"
+        },
+        {
+            "_id": "TeamsEmployees",
+            "name": "TeamsEmployees",
+            "description": "Teams - Employees"
+        },
+        {
+            "_id": "UnitCI",
+            "name": "UnitCI",
+            "description": "Unit - Configuration items"
+        },
+        {
+            "_id": "UnitPartitionTableR",
+            "name": "UnitPartitionTableR",
+            "description": "Unit - Partition table rows"
+        },
+        {
+            "_id": "UnitRoom",
+            "name": "UnitRoom",
+            "description": "Unit - Rooms"
+        },
+        {
+            "_id": "UserEmployee",
+            "name": "UserEmployee",
+            "description": "User - Employees"
+        },
+        {
+            "_id": "WrhMovMovementRow",
+            "name": "WrhMovMovementRow",
+            "description": "Warehouse movement - Warehouse movement rows"
+        }
+    ],
+    "meta": {
+        "total": 108
+    }
+}

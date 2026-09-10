@@ -1,13 +1,14 @@
 services:
   openmaint_db:
     image: postgis/postgis:17-3.5-alpine
+    platform: linux/amd64
     container_name: openmaint_db
     networks:
       - openmaint-net
     volumes:
       - db:/var/lib/postgresql/data
     ports:
-      - 5432:5432
+      - 127.0.0.1:5432:5432
     environment:
       - POSTGRES_USER=${POSTGRES_USER}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
@@ -33,6 +34,7 @@ services:
         max-file: "3"
   openmaint_app:
     image: itmicus/cmdbuild:om-2.4.2-4.2.0
+    platform: linux/amd64
     container_name: openmaint_app
     networks:
       - openmaint-net
@@ -40,7 +42,7 @@ services:
       openmaint_db:
         condition: service_healthy
     ports:
-      - 8090:8080
+      - 127.0.0.1:8090:8080
     restart: unless-stopped
     volumes:
       - tomcat:/usr/local/tomcat
