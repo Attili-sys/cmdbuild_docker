@@ -9,7 +9,7 @@ Unknown is preferable to invented.
 
 | Item | Status | How to resolve |
 |------|--------|---------------|
-| Exact XPDL content for CorrectiveMaint | NOT CONFIRMED | Export XPDL from Administration → Processes → CorrectiveMaint → Workflow |
+| Exact XPDL content for CorrectiveMaint | CONFIRMED (148KB) | Extracted from `_Plan` table; used as structural reference for FacilityIncident XPDL |
 | Exact XPDL content for PreventiveMaint | NOT CONFIRMED | Export from admin UI |
 | Email notification trigger points in workflows | NOT CONFIRMED | Review XPDL and email template list |
 | Exact list of email templates (`_EmailTemplate`) | NOT CONFIRMED | Query `_EmailTemplate` table |

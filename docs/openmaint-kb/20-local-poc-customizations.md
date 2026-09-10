@@ -49,7 +49,39 @@ This is documented in the upstream Itmicus repository README as a required post-
 
 ## AJMN POC Test Records
 
-At the time of this KB inspection (2026-09-10), no AJMN-specific test records were confirmed in the database. The only business data present is the standard openMAINT demo data from `demo.dump.xz`.
+As of 2026-09-10, the following AJMN-specific customisations have been applied to this deployment:
+
+### FacilityIncident Custom Process (AJMN POC)
+
+A complete custom process class was created to prove that AJMN-specific workflows can coexist with the existing openMAINT maintenance model.
+
+**Class:** `FacilityIncident` (CMDBuild type: Process)
+
+**6-state workflow:** Reported → Reviewed → Assigned → In Progress → Resolved → Closed
+
+**Database objects added:**
+- `_Class` row for `FacilityIncident` process class
+- 15 attribute rows in `_Attribute` (Description, IncidentType, Severity, LocationDetail, Building, Floor, Room, ReportedBy, AssignedTeam, AssignedPerson, ReportedDate, TargetResolutionDate, ResolutionNotes, RelatedAsset, Notes)
+- `_Plan` row: Code = `fi7e398da92e8b4bf6ab64`, active XPDL with 6 user activities
+- 6 `_Template` rows for performer resolution (`FI-{State}_StartingRoles`)
+- `_Grant` rows for process permissions
+- `_Menu` entry: added `processclass → FacilityIncident` (description: "Facility and Security Incident") after PreventiveMaint in the Maintenance management section
+
+**Test instances created:**
+| Id | Description | Final status |
+|----|-------------|-------------|
+| 535925 | Gate 1 access reader not working - Security incident | closed.completed |
+| 536212 | Gate 1 access reader not working - STEP TEST | closed.completed |
+
+**Key API findings (from decompiling `WsFlowData.class`):**
+- Advance endpoint: `PUT /services/rest/v4/processes/{class}/instances/{id}`
+- Required body keys: `_advance: true`, `_activity: "{activityInstanceId}"`, `stepAction: "Advance"`
+- The `_activity` key (underscore prefix) is critical — without it the server throws `must set 'activity' param`
+
+**Source files (scratchpad only — not committed):**
+- `build_fi_xpdl.py` — generates XPDL from CM XPDL template
+- `fi_xpdl_v3.xml` — the generated XPDL (37KB)
+- `update_plan_v7.sql` — SQL that loaded the XPDL
 
 If AJMN test records are added (test buildings, rooms, assets, work orders), they should be:
 1. Documented here with class name, Code, and Description
