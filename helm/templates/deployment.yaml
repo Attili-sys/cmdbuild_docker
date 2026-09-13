@@ -1,0 +1,180 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}
+  labels:
+    {{- include "openmaint.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  strategy:
+    # openMAINT is single-instance (CMDBuild holds workflow state in-process)
+    # and the Tomcat volume is ReadWriteOnce, so a rolling update would
+    # deadlock on the PVC.
+    type: Recreate
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}
+      release: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}
+        release: {{ .Release.Name }}
+      annotations:
+        checksum/config: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
+        checksum/secret: {{ include (print $.Template.BasePath "/secret.yaml") . | sha256sum }}
+        deployment.kubernetes.io/revision: "{{ .Release.Revision }}"
+    spec:
+      {{- if .Values.image.pullSecret }}
+      imagePullSecrets:
+        - name: {{ .Values.image.pullSecret }}
+      {{- end }}
+      securityContext:
+        # The image creates and runs as the `tomcat` user, uid/gid 1001.
+        runAsUser: 1001
+        runAsGroup: 1001
+        fsGroup: 1001
+      terminationGracePeriodSeconds: 60
+      {{- if .Values.app.persistence.enabled }}
+      initContainers:
+        # A docker-compose named volume is seeded from the image on first use;
+        # a Kubernetes PVC is not, and would mount empty over the Tomcat
+        # install. Copy the image contents in once, then leave it alone.
+        - name: seed-tomcat
+          image: {{ include "openmaint.image" . | quote }}
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          command: ["bash", "-c"]
+          args:
+            - |
+              set -e
+              if [ -f /seed/.cmdbuild-seeded ]; then
+                echo "Tomcat volume already seeded; leaving it untouched."
+                exit 0
+              fi
+              echo "Seeding Tomcat volume from the image..."
+              cp -a /usr/local/tomcat/. /seed/
+              touch /seed/.cmdbuild-seeded
+              echo "Seed complete."
+          volumeMounts:
+            - name: tomcat-data
+              mountPath: /seed
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: "1"
+              memory: 512Mi
+      {{- end }}
+      containers:
+        - name: {{ .Chart.Name }}
+          image: {{ include "openmaint.image" . | quote }}
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: {{ .Values.service.targetPort }}
+              protocol: TCP
+          envFrom:
+            - configMapRef:
+                name: {{ .Release.Name }}-env
+            - configMapRef:
+                name: {{ .Release.Name }}-postgress
+            - secretRef:
+                name: {{ .Release.Name }}-secret
+          {{- with .Values.app.env }}
+          env:
+            {{- range . }}
+            - name: {{ .name }}
+              value: {{ .value | quote }}
+            {{- end }}
+          {{- end }}
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          # First start restores the dump and initialises the schema, which
+          # takes several minutes. The startup probe covers that window so
+          # the liveness probe can stay tight afterwards.
+          startupProbe:
+            httpGet:
+              path: /cmdbuild/ui
+              port: http
+            periodSeconds: 10
+            timeoutSeconds: 5
+            failureThreshold: 90
+          livenessProbe:
+            httpGet:
+              path: /cmdbuild/ui
+              port: http
+            periodSeconds: 30
+            timeoutSeconds: 10
+            failureThreshold: 3
+          readinessProbe:
+            httpGet:
+              path: /cmdbuild/ui
+              port: http
+            periodSeconds: 10
+            timeoutSeconds: 5
+            failureThreshold: 3
+          {{- if .Values.app.persistence.enabled }}
+          volumeMounts:
+            - name: tomcat-data
+              mountPath: /usr/local/tomcat
+          {{- end }}
+        {{- if .Values.app.dms.autoConfigure }}
+        # Equivalent of the three `docker exec ... cmdbuild.sh restws setconfig`
+        # calls in the compose README. Shares the pod network namespace, so it
+        # reaches the app on localhost the same way docker exec did.
+        - name: dms-config
+          image: {{ include "openmaint.image" . | quote }}
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          command: ["bash", "-c"]
+          args:
+            - |
+              CB=/usr/local/tomcat/webapps/cmdbuild/cmdbuild.sh
+              echo "Waiting for openMAINT to accept requests..."
+              until curl -fsSL -o /dev/null http://127.0.0.1:{{ .Values.service.targetPort }}/cmdbuild/ui; do
+                sleep 10
+              done
+              echo "openMAINT is up; applying DMS configuration."
+              rc=0
+              "$CB" restws setconfig org.cmdbuild.dms.enabled false || rc=$?
+              "$CB" restws setconfig org.cmdbuild.dms.service.type {{ .Values.app.dms.serviceType | quote }} || rc=$?
+              "$CB" restws setconfig org.cmdbuild.dms.enabled true || rc=$?
+              if [ "$rc" -eq 0 ]; then
+                echo "DMS configuration applied successfully."
+              else
+                # Deliberately not fatal: a DMS misconfiguration should not
+                # crash-loop the pod and take the whole app down with it.
+                echo "WARNING: DMS configuration failed (exit $rc). Attachments may not work." >&2
+                echo "Re-run manually: kubectl exec deploy/$RELEASE -c dms-config -- $CB restws setconfig org.cmdbuild.dms.enabled true" >&2
+              fi
+              echo "Nothing further to do; idling."
+              while true; do sleep 3600; done
+          env:
+            - name: RELEASE
+              value: {{ .Release.Name | quote }}
+          resources:
+            {{- toYaml .Values.app.dms.resources | nindent 12 }}
+          {{- if .Values.app.persistence.enabled }}
+          volumeMounts:
+            - name: tomcat-data
+              mountPath: /usr/local/tomcat
+          {{- end }}
+        {{- end }}
+      {{- if .Values.app.persistence.enabled }}
+      volumes:
+        - name: tomcat-data
+          persistentVolumeClaim:
+            claimName: {{ .Release.Name }}-data
+      {{- end }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}

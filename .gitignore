@@ -1,1 +1,8 @@
 **/*.war
+
+# Local Helm value overrides — these hold real credentials, never commit them
+helm/values.local.yaml
+helm/values-*.local.yaml
+helm/secrets*.yaml
+helm/charts/
+helm/*.tgz

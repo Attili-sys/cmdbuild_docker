@@ -1,0 +1,161 @@
+{{- if .Values.postgresql.enabled }}
+{{/*
+PostGIS is deployed in-chart because openMAINT requires the PostGIS extension
+and no maintained upstream PostgreSQL chart provides it. Set
+postgresql.enabled=false and app.database.host=<host> to use a managed,
+PostGIS-enabled PostgreSQL instead — the preferred option for production.
+*/}}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Release.Name }}-postgresql
+  labels:
+    {{- include "openmaint.labels" . | nindent 4 }}
+    component: postgresql
+spec:
+  type: ClusterIP
+  ports:
+    - port: {{ .Values.app.database.port | default 5432 }}
+      targetPort: postgresql
+      protocol: TCP
+      name: postgresql
+  selector:
+    app: {{ .Release.Name }}
+    release: {{ .Release.Name }}
+    component: postgresql
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Release.Name }}-postgresql-hl
+  labels:
+    {{- include "openmaint.labels" . | nindent 4 }}
+    component: postgresql
+spec:
+  type: ClusterIP
+  clusterIP: None
+  ports:
+    - port: {{ .Values.app.database.port | default 5432 }}
+      targetPort: postgresql
+      protocol: TCP
+      name: postgresql
+  selector:
+    app: {{ .Release.Name }}
+    release: {{ .Release.Name }}
+    component: postgresql
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: {{ .Release.Name }}-postgresql
+  labels:
+    {{- include "openmaint.labels" . | nindent 4 }}
+    component: postgresql
+spec:
+  serviceName: {{ .Release.Name }}-postgresql-hl
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}
+      release: {{ .Release.Name }}
+      component: postgresql
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}
+        release: {{ .Release.Name }}
+        component: postgresql
+      annotations:
+        checksum/secret: {{ include (print $.Template.BasePath "/secret.yaml") . | sha256sum }}
+    spec:
+      {{- if .Values.image.pullSecret }}
+      imagePullSecrets:
+        - name: {{ .Values.image.pullSecret }}
+      {{- end }}
+      securityContext:
+        runAsUser: {{ .Values.postgresql.uid }}
+        runAsGroup: {{ .Values.postgresql.gid }}
+        fsGroup: {{ .Values.postgresql.gid }}
+      containers:
+        - name: postgresql
+          image: {{ include "openmaint.postgresImage" . | quote }}
+          imagePullPolicy: {{ .Values.postgresql.image.pullPolicy }}
+          ports:
+            - name: postgresql
+              containerPort: 5432
+              protocol: TCP
+          env:
+            - name: POSTGRES_USER
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ .Release.Name }}-postgress
+                  key: POSTGRES_USER
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Release.Name }}-secret
+                  key: POSTGRES_PASSWORD
+            - name: POSTGRES_INITDB_ARGS
+              value: {{ .Values.postgresql.initdbArgs | quote }}
+            # The PVC is mounted one level above PGDATA so initdb gets an
+            # empty directory it owns, rather than the volume root.
+            - name: PGDATA
+              value: /var/lib/postgresql/data/pgdata
+          resources:
+            {{- toYaml .Values.postgresql.resources | nindent 12 }}
+          startupProbe:
+            exec:
+              command: ["sh", "-c", "pg_isready -U \"$POSTGRES_USER\" -h 127.0.0.1"]
+            periodSeconds: 10
+            timeoutSeconds: 5
+            failureThreshold: 30
+          livenessProbe:
+            exec:
+              command: ["sh", "-c", "pg_isready -U \"$POSTGRES_USER\" -h 127.0.0.1"]
+            periodSeconds: 30
+            timeoutSeconds: 10
+            failureThreshold: 3
+          readinessProbe:
+            exec:
+              command: ["sh", "-c", "pg_isready -U \"$POSTGRES_USER\" -h 127.0.0.1"]
+            periodSeconds: 10
+            timeoutSeconds: 5
+            failureThreshold: 3
+          volumeMounts:
+            - name: data
+              mountPath: /var/lib/postgresql/data
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- if not .Values.postgresql.persistence.enabled }}
+      volumes:
+        - name: data
+          emptyDir: {}
+      {{- end }}
+  {{- if .Values.postgresql.persistence.enabled }}
+  volumeClaimTemplates:
+    - metadata:
+        name: data
+        labels:
+          {{- include "openmaint.labels" . | nindent 10 }}
+          component: postgresql
+      spec:
+        accessModes:
+          - {{ .Values.postgresql.persistence.accessMode }}
+        resources:
+          requests:
+            storage: {{ .Values.postgresql.persistence.size }}
+        {{- if .Values.postgresql.persistence.storageClass }}
+        storageClassName: {{ .Values.postgresql.persistence.storageClass }}
+        {{- end }}
+  {{- end }}
+{{- end }}

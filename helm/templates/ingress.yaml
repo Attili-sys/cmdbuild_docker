@@ -1,0 +1,42 @@
+{{- if .Values.ingress.enabled }}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ .Release.Name }}-ingress
+  labels:
+    {{- include "openmaint.labels" . | nindent 4 }}
+  annotations:
+{{- if .Values.app.tls.enabled }}
+    traefik.ingress.kubernetes.io/router.entrypoints: web,websecure
+    traefik.ingress.kubernetes.io/router.tls: "true"
+    cert-manager.io/cluster-issuer: {{ .Values.app.tls.certIssuer | quote }}
+    cert-manager.io/common-name: {{ .Values.app.hostname | quote }}
+{{- else }}
+    traefik.ingress.kubernetes.io/router.entrypoints: web
+{{- end }}
+{{- range $k, $v := .Values.ingress.annotations }}
+    {{ $k }}: {{ $v | quote }}
+{{- end }}
+spec:
+  ingressClassName: {{ .Values.ingress.ingressClassName | quote }}
+{{- if .Values.app.tls.enabled }}
+  tls:
+    - hosts:
+        - {{ .Values.app.hostname | quote }}
+      secretName: {{ (default (printf "%s-tls" .Release.Name) .Values.ingress.tlsSecretName) | quote }}
+{{- end }}
+  rules:
+    - host: {{ .Values.app.hostname | quote }}
+      http:
+        paths:
+          # The webapp is served from /cmdbuild; Tomcat has no ROOT app, so
+          # / itself returns 404. Routing all paths keeps /cmdbuild/ui and the
+          # REST API under /cmdbuild/services reachable.
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: {{ .Release.Name }}
+                port:
+                  number: {{ .Values.service.port }}
+{{- end }}

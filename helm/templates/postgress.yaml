@@ -1,0 +1,16 @@
+{{/*
+Non-secret database connection settings consumed by docker-entrypoint.sh.
+Passwords deliberately live in the Secret, not here.
+*/}}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-postgress
+  labels:
+    {{- include "openmaint.labels" . | nindent 4 }}
+data:
+  POSTGRES_HOST: {{ include "openmaint.dbHost" . | quote }}
+  POSTGRES_PORT: {{ .Values.app.database.port | default 5432 | quote }}
+  POSTGRES_DB: {{ .Values.app.database.name | default "openmaint" | quote }}
+  POSTGRES_USER: {{ .Values.app.database.adminUser | default "postgres" | quote }}
+  OPENMAINT_DB_USER: {{ .Values.app.database.appUser | default "openmaint" | quote }}

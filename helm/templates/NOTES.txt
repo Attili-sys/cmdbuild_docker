@@ -1,0 +1,61 @@
+Thank you for installing {{ .Chart.Name }} ({{ .Chart.AppVersion }}).
+
+Your release is named {{ .Release.Name }}.
+
+To learn more:
+  $ helm status {{ .Release.Name }} -n {{ .Release.Namespace }}
+  $ helm get all {{ .Release.Name }} -n {{ .Release.Namespace }}
+
+APPLICATION ACCESS
+{{- if .Values.ingress.enabled }}
+{{- if .Values.app.tls.enabled }}
+  https://{{ .Values.app.hostname }}/cmdbuild/ui/
+{{- else }}
+  http://{{ .Values.app.hostname }}/cmdbuild/ui/
+{{- end }}
+{{- else }}
+Ingress disabled. Use port-forward:
+  kubectl port-forward svc/{{ .Release.Name }} 8090:{{ .Values.service.port }} -n {{ .Release.Namespace }}
+  then open http://127.0.0.1:8090/cmdbuild/ui/
+{{- end }}
+
+Note the /cmdbuild/ui/ path — Tomcat serves no ROOT application, so the bare
+hostname returns 404.
+
+FIRST START
+{{- if eq (.Values.app.dump | default "demo.dump.xz") "demo.dump.xz" }}
+The demo dataset ({{ .Values.app.dump }}) is restored on first start. This takes
+several minutes; the startup probe allows up to 15 minutes before the pod is
+marked unhealthy. Subsequent restarts skip the restore.
+{{- else }}
+Dump: {{ .Values.app.dump }} — restored on first start only.
+{{- end }}
+
+Watch progress:
+  kubectl logs -f deployment/{{ .Release.Name }} -c {{ .Chart.Name }} -n {{ .Release.Namespace }}
+
+The default openMAINT login is the `admin` account shipped in the dump.
+Change its password immediately after first login.
+
+DATABASE
+{{- if .Values.postgresql.enabled }}
+PostGIS deployed in-chart as statefulset/{{ .Release.Name }}-postgresql
+  host: {{ .Release.Name }}-postgresql:{{ .Values.app.database.port }}
+  database: {{ .Values.app.database.name }}
+{{- else }}
+External PostgreSQL (PostGIS required)
+  host: {{ .Values.app.database.host }}:{{ .Values.app.database.port }}
+  database: {{ .Values.app.database.name }}
+{{- end }}
+Credentials are stored in secret/{{ .Release.Name }}-secret.
+
+{{- if .Values.app.dms.autoConfigure }}
+
+ATTACHMENTS (DMS)
+The dms-config sidecar applies the DMS settings once the app is up:
+  kubectl logs deployment/{{ .Release.Name }} -c dms-config -n {{ .Release.Namespace }}
+{{- end }}
+
+LOGS
+  kubectl logs -f deployment/{{ .Release.Name }} -c {{ .Chart.Name }} -n {{ .Release.Namespace }}
+  kubectl get pods -l app={{ .Release.Name }} -n {{ .Release.Namespace }}

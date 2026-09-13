@@ -1,0 +1,14 @@
+apiVersion: v2
+name: openmaint
+description: A Helm chart for openMAINT 2.4.2 (CMDBuild 4.2.0) CAFM
+type: application
+version: 0.1.0
+appVersion: "om-2.4.2-4.2.0"
+
+# No sub-chart dependencies.
+#
+# openMAINT requires PostgreSQL with the PostGIS extension. The Bitnami
+# postgresql chart has never shipped PostGIS, and its public images were
+# retired from Docker Hub, so it cannot be used here. PostGIS is therefore
+# deployed by this chart directly (templates/postgresql.yaml), or supplied
+# externally via app.database.* when postgresql.enabled is false.

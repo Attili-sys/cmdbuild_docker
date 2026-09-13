@@ -1,0 +1,125 @@
+replicaCount: 1
+
+image:
+  repository: itmicus
+  name: cmdbuild
+  tag: om-2.4.2-4.2.0
+  pullPolicy: IfNotPresent
+  # Public image — no pull secret needed. Set this if you mirror it to a
+  # private registry (e.g. a branded build).
+  pullSecret: ""
+
+service:
+  port: 80
+  targetPort: 8080
+  type: ClusterIP
+
+ingress:
+  enabled: true
+  ingressClassName: kommander-traefik
+  tlsSecretName: ""
+  annotations: {}
+
+app:
+  hostname: openmaint.example.com
+
+  # Which dump the entrypoint restores on first start.
+  #   demo.dump.xz   — openMAINT demo dataset (buildings, assets, work orders)
+  #   empty.dump.xz  — empty schema only
+  # Ignored on every start after the database has been initialised.
+  dump: demo.dump.xz
+
+  # Tomcat heap. Must fit inside resources.limits.memory below.
+  javaOpts: "-Xmx6000m -Xms3000m"
+
+  tls:
+    enabled: true
+    certIssuer: letsencrypt
+
+  database:
+    # Leave host empty to use the PostGIS instance deployed by this chart.
+    # Set it to point at an external PostGIS-enabled PostgreSQL instead.
+    host: ""
+    port: 5432
+    # CMDBuild application database. Created by the entrypoint on first start.
+    name: openmaint
+    # Superuser — used once by `cmdbuild.sh dbconfig create` to create the
+    # database, install PostGIS and restore the dump.
+    adminUser: postgres
+    adminPassword: ""
+    # Day-to-day application user CMDBuild connects as.
+    appUser: openmaint
+    appPassword: ""
+
+  dms:
+    # Runs the three post-deploy `cmdbuild.sh restws setconfig` calls that
+    # enable attachments with the postgres DMS backend, once the app is up.
+    autoConfigure: true
+    serviceType: postgres
+    # cmdbuild.sh starts a JVM with the full webapp classpath; it needs more
+    # headroom than the trivial workload suggests.
+    resources:
+      requests:
+        cpu: 50m
+        memory: 128Mi
+      limits:
+        cpu: 500m
+        memory: 1500Mi
+
+  log:
+    logLevel: "INFO"
+
+  persistence:
+    # Mirrors the `tomcat` named volume in docker-compose.yml. Keeps
+    # CMDBuild's on-disk config (e.g. gis-geoservers.json) across restarts.
+    # See helm/README.md — this pins the webapp to the image it was first
+    # seeded from, exactly like the compose named volume does.
+    enabled: true
+    size: 10Gi
+    storageClass: ""
+    accessMode: "ReadWriteOnce"
+
+  env: []
+    # - name: Owner
+    #   value: AJMN-CAFM
+
+# PostGIS deployed by this chart. Set enabled: false and fill in
+# app.database.host to use an externally managed PostGIS instead.
+postgresql:
+  enabled: true
+  image:
+    repository: postgis
+    name: postgis
+    tag: 17-3.5-alpine
+    pullPolicy: IfNotPresent
+  # postgres/postgis alpine images run as uid/gid 70.
+  uid: 70
+  gid: 70
+  initdbArgs: "--encoding=UTF-8"
+  persistence:
+    enabled: true
+    size: 20Gi
+    storageClass: ""
+    accessMode: "ReadWriteOnce"
+  resources:
+    requests:
+      cpu: 500m
+      memory: 2000Mi
+    limits:
+      cpu: "2"
+      memory: 4000Mi
+
+resources:
+  requests:
+    cpu: 500m
+    memory: 4000Mi
+  limits:
+    cpu: "2"
+    memory: 8000Mi
+
+# The openMAINT image is linux/amd64 only.
+nodeSelector:
+  kubernetes.io/arch: amd64
+
+tolerations: []
+affinity: {}
