@@ -46,6 +46,7 @@ services:
     restart: unless-stopped
     volumes:
       - tomcat:/usr/local/tomcat
+      - ../aljazeera_research/image.png:/usr/local/tomcat/webapps/cmdbuild/ui/openmaint/resources/images/company-logo.png:ro
     environment:
       - POSTGRES_USER=${POSTGRES_USER}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
